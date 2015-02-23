@@ -1,0 +1,49 @@
+<ion-view>
+    <ion-nav-buttons class="bar-energized">
+        <div class="buttons"><button class="button button-icon button-clear ion-drag" menu-toggle="left">
+        </button>
+        </div>
+            <h1 class="title">News</h1>
+        <div class="buttons">
+            <a href="#/app/main" class="button icon button-icon">Home</a>
+        </div>
+    </ion-nav-buttons>
+
+    <ion-content>
+      <h1>News</h1>
+    </ion-content>
+
+</ion-view>
+
+
+<!--<ion-view >
+    <ion-nav-title>Commodity Issues</ion-nav-title>
+<ion-nav-bar class="bar-energized">
+    <ion-nav-buttons side="left">
+        <button menu-toggle="left" class="button button-icon icon ion-drag"></button>
+    </ion-nav-buttons>
+</ion-nav-bar>
+<ion-content>
+        
+    <ion-list>
+        <label class="item item-input">
+            <i class="icon ion-search placeholder-icon"></i>
+            <input type="text" placeholder="Search issues" ng-model="searchIssues">
+        </label>
+        <div ng-repeat="(key, issues) in platforms">
+        <ion-item  class="item-divider item-dark">{{key}}</ion-item>
+            <div ng-repeat="issue in issues">
+                <div ng-repeat="(name, process) in issue">
+        <ion-item  class="item-divider item icon item-icon-left">
+            <i class="icon ion-ios7-gear-outline"></i>{{name}}</ion-item>
+      <ion-item ng-repeat="issues in process | filter:searchIssues " href="#/app/issues/{{issue.issue}}" ng-click="setItem(issues)" class="icon item-icon-right">
+        {{issues.issue}}
+          <i class="icon ion-ios7-arrow-right"></i>
+      </ion-item>
+                    </div>
+                </div>
+        </div>
+    </ion-list>
+</ion-content>
+</ion-view>-->
+

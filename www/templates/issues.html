@@ -1,0 +1,47 @@
+<ion-view>
+    <ion-nav-title ng-init="header = getItem().hint">{{header}}</ion-nav-title>
+<ion-nav-bar class="bar-energized">
+  <ion-nav-back-button class="button-icon button-clear ion-ios7-arrow-left">
+      </ion-nav-back-button>
+</ion-nav-bar>
+<ion-content ng-init="item = getItem()">
+
+        <div class="list card">
+
+          <div class="item item-royal">
+            <h2>{{item.issue}}</h2>
+          </div>
+            
+            <div class="item">
+            <h2>{{item.issue}}</h2>
+          </div>
+
+          <div class="item item-body">
+            <p>
+              {{item.text}}
+            </p>
+            <p>
+              <a href="#" class="subdued">1 Like</a>
+              <a href="#" class="subdued">5 Comments</a>
+            </p>
+          </div>
+
+          <div class="item tabs tabs-secondary tabs-icon-left">
+            <a class="tab-item" href="#">
+              <i class="icon ion-thumbsup"></i>
+              Like
+            </a>
+            <a class="tab-item" href="#">
+              <i class="icon ion-chatbox"></i>
+              Comment
+            </a>
+            <a class="tab-item" href="#">
+              <i class="icon ion-share"></i>
+              Share
+            </a>
+          </div>
+
+    </div>
+    
+    </ion-content>
+</ion-view
