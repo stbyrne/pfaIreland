@@ -41,12 +41,12 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives']
   })
   
   .state('app.transfer', {
-       
+    
     url: "/transfer",
     views: {
       'menuContent': {
         templateUrl: "templates/transfer.html",
-        controller: 'AppCtrl'
+        controller: "ListCtrl"
       }
     }
   })

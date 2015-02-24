@@ -11,7 +11,8 @@ angular.module('starter.controllers', [])
     }
  }
 })
-/*.factory('listFactory', function($http) {
+
+.factory('listFactory', function($http) {
     
  return{
     getList : function() {
@@ -21,7 +22,7 @@ angular.module('starter.controllers', [])
         })
     }
  }
-})*/
+})
 
 .controller('AppCtrl', ['$scope', '$http', 'appFactory', function($scope, $http, appFactory) {
     
@@ -31,9 +32,11 @@ angular.module('starter.controllers', [])
     appFactory.getJson().success(function(data){
         $scope.app = data;
         console.log($scope.app);
-    
         
     });
+    
+        
+
     $scope.setItem = function(item){
         $scope.$parent.item = item;
         console.log(item);
@@ -46,20 +49,31 @@ angular.module('starter.controllers', [])
    
     
 }])
-/*.controller('ListCtrl', ['$scope', 'listService', function($scope, listService) {
+.controller('ListCtrl', ['$scope', 'listFactory', '$ionicLoading', function($scope, listFactory, $ionicLoading) {
+   
+    $scope.list = [];
     
-    init();
+    $ionicLoading.show({
+    content: 'Loading',
+    animation: 'fade-in',
+    showBackdrop: true,
+    maxWidth: 400,
+    showDelay: 0
+    });
     
-    function init(){
+    
+    listFactory.getList().success(function(data){
+            $scope.$parent.list = data;
+            console.log($scope.$parent.list);
+            $ionicLoading.hide();
         
-        listService.getList(data).then(function(data){
-            $scope.list=data; 
-            console.log($scope.list);
-        });
-           
-    }
+        angular.forEach($scope.$parent.list, function(i){
+             console.log(i.firstname);  
+        })
+    });
     
-}])*/
+    
+}])
 /*.controller('PlatformCtrl', function ($scope, $http) {
     
     $scope.platform = {};
