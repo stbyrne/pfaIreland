@@ -53,23 +53,21 @@ angular.module('starter.controllers', [])
    
     $scope.list = [];
     
+    
     $ionicLoading.show({
-    content: 'Loading',
-    animation: 'fade-in',
-    showBackdrop: true,
-    maxWidth: 400,
-    showDelay: 0
+    template: '<i class="icon ion-loading-c"></i>',
+    showBackdrop: true
     });
     
     
     listFactory.getList().success(function(data){
-            $scope.$parent.list = data;
-            console.log($scope.$parent.list);
-            $ionicLoading.hide();
         
-        angular.forEach($scope.$parent.list, function(i){
-             console.log(i.firstname);  
+        $scope.list = data;
+            
+        angular.forEach($scope.list, function(k,v){
+             console.log(Object.keys(v));  
         })
+        $ionicLoading.hide();
     });
     
     

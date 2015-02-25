@@ -16,13 +16,14 @@
           <div class="col">Pos</div>
           <div class="col">Dob</div>
         </div>
-        <div class="row" ng-repeat="detail in list">
-            <div class="row" ng-repeat="player in detail">
-              <div class="col">{{player.Position}}</div>
-              <div class="col">Club</div>
-              <div class="col">Pos</div>
-              <div class="col">Dob</div>
+        <div class="row" ng-repeat="player in list">
+        <div class="row" ng-repeat="(key,value) in player">
+            
+              <!--<div ng-if="key == 'First Name'" class="col">{{value}}</div>-->
+              <div class="col">{{value}}</div>
+              
             </div>
+            
         </div>
     </ion-content>
 
