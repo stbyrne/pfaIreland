@@ -66,18 +66,21 @@ angular.module('starter.controllers', [])
         $scope.players = [];
         
         angular.forEach($scope.list, function(value, key, i){
-            console.log(value["First Name"] + ' ' + value["Last Name"]);
-            $scope.players.push(value["First Name"] + ' ' + value["Last Name"]);
-            console.log(value["Previous Clubs"]);
-            $scope.players.push(value["Previous Clubs"]);
-            console.log(value["Position"]);
-            $scope.players.push(value["Position"]);
-            console.log(value["Date of Birth"]);
-            $scope.players.push(value["Date of Birth"]);
-            /*angular.forEach(value, function(i){
-             console.log(i); 
-            })*/
-        })
+            
+            var $dobTag = value["Date of Birth"],
+                $dobString = $($dobTag).attr('content').substr(0,10),
+                $dob = new Date($dobString),
+                $dobDate = $dobString.substr(8,$dobString.length),
+                $dobMonth = $dobString.substr(5,2),
+                $dobYear = $dobString.substr(0,4),
+                $dobPlayer = $dobDate + '/' + $dobMonth + '/' + $dobYear;
+                
+            this.push([value["First Name"] + ' ' + value["Last Name"], value["Previous Clubs"], value["Position"], $dobPlayer]);
+            
+            /*console.log($scope.players);*/
+           
+        }, $scope.players)
+        
         
         /*angular.forEach($scope.list, function(i){
              console.log(Object.keys(i));  

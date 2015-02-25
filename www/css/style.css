@@ -17,3 +17,24 @@ i.icon.ion-loading-c {
     color: rgb(70, 120, 0);
     zoom: 3;
 }
+
+/* Transfer List */
+
+.transferlist .col{
+    padding: 1px;  
+}
+
+.transferlist .row{
+    margin: 0;
+    border-bottom: 1px solid rgba(150,150,150, 0.6);  
+}
+.list-title{
+    font-size: 1.2em;
+    font-weight: 600;
+    color: rgb(70, 120, 0); 
+        
+}
+.transferlist .list-detail{
+    font-size: 10px; 
+        
+}
