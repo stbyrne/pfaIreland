@@ -63,10 +63,25 @@ angular.module('starter.controllers', [])
     listFactory.getList().success(function(data){
         
         $scope.list = data;
-            
-        angular.forEach($scope.list, function(k,v){
-             console.log(Object.keys(v));  
+        $scope.players = [];
+        
+        angular.forEach($scope.list, function(value, key, i){
+            console.log(value["First Name"] + ' ' + value["Last Name"]);
+            $scope.players.push(value["First Name"] + ' ' + value["Last Name"]);
+            console.log(value["Previous Clubs"]);
+            $scope.players.push(value["Previous Clubs"]);
+            console.log(value["Position"]);
+            $scope.players.push(value["Position"]);
+            console.log(value["Date of Birth"]);
+            $scope.players.push(value["Date of Birth"]);
+            /*angular.forEach(value, function(i){
+             console.log(i); 
+            })*/
         })
+        
+        /*angular.forEach($scope.list, function(i){
+             console.log(Object.keys(i));  
+        })*/
         $ionicLoading.hide();
     });
     
