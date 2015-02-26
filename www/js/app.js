@@ -56,7 +56,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives']
     views: {
       'menuContent': {
         templateUrl: "templates/news.html",
-        controller: 'AppCtrl'
+        controller: 'NewsCtrl'
       }
     }
   })

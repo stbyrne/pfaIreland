@@ -14,8 +14,8 @@ map {
     background-color: rgba(0,0,0,0)!important;
 }
 i.icon.ion-loading-c {
-    color: rgb(70, 120, 0);
-    zoom: 3;
+    color: rgb(0,170,50);
+    zoom: 5;
 }
 
 /* Transfer List */
@@ -26,15 +26,16 @@ i.icon.ion-loading-c {
 
 .transferlist .row{
     margin: 0;
+    padding: 10px 0;
     border-bottom: 1px solid rgba(150,150,150, 0.6);  
 }
 .list-title{
     font-size: 1.2em;
     font-weight: 600;
-    color: rgb(70, 120, 0); 
+    color: rgb(0,170,50); 
         
 }
 .transferlist .list-detail{
-    font-size: 10px; 
+    font-size: 8px; 
         
 }

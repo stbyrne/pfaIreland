@@ -10,7 +10,15 @@
     </ion-nav-buttons>
 
     <ion-content>
-      <h1>News</h1>
+        <ion>
+            <ion-item ng-repeat="detail in articleList" href="#" ng-click="#" class="item item-thumbnail-left item-icon-right">
+        <img src={{detail[0]}}>
+        <h2>{{detail[1]}}</h2>
+        <p>{{detail[2]}}</p>
+        <span>{{detail[3]}}</span>
+          <i class="icon ion-ios7-arrow-right"></i>
+      </ion-item>
+        </ion>
     </ion-content>
 
 </ion-view>
