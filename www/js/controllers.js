@@ -62,15 +62,26 @@ angular.module('starter.controllers', [])
     
 }])
 
-.controller('NewsCtrl', ['$scope', 'newsFactory', '$ionicLoading', function($scope, newsFactory, $ionicLoading) {
+.controller('NewsCtrl', ['$scope', 'newsFactory', '$ionicLoading', '$ionicSlideBoxDelegate', '$timeout', function($scope, newsFactory, $ionicLoading , $ionicSlideBoxDelegate, $timeout) {
    
     $scope.news = [];
+    $scope.article = [];
     
     
     $ionicLoading.show({
     template: '<i class="icon ion-loading-c"></i>',
     showBackdrop: true
     });
+    
+    /*$scope.setArticle = function(item){
+        $scope.article = item;
+        console.log(item);
+       
+    }
+    $scope.getItem = function(){
+        return $scope.$parent.item;
+        console.log($scope.$parent.item);
+    }*/
     
     
     newsFactory.getNews().success(function(data){
@@ -84,17 +95,17 @@ angular.module('starter.controllers', [])
         angular.forEach($scope.news, function(value, key, i){
             
             var $getBody = value["body"],
-                $articleBody = $($getBody).attr('p'),
+                $articleBody = $getBody,
                 $timestamp = new Date(value["date"]*1000),
                 $articleDate = $timestamp.toDateString(),
-                $articleImage = value["field_image"],
+                $articleImage = $(value["field_image"]).attr('src'),
                 $articleTitle = value["node_title"],
                 $articleIntro = $getBody.replace('<p>', '').substr(0,95),
                 $articleThumb = $(value["thumbnail"]).attr('src');
             
-            $.each($($getBody).find('img'), function(){
+            $.each($($articleBody).find('img'), function(){
                 if($(this).attr('src').slice(0,18)!='http://www.pfai.ie'){
-                       $getBody = $getBody.replace($(this).attr('src'), 'http://www.pfai.ie' + $(this).attr('src'));
+                       $articleBody = $articleBody.replace($(this).attr('src'), 'http://www.pfai.ie' + $(this).attr('src'));
                  
                 }
                 
@@ -102,7 +113,7 @@ angular.module('starter.controllers', [])
             
             $scope.articleList.push([$articleThumb, $articleTitle, $articleIntro,$articleDate]);
                 
-            this.push([$getBody, $articleDate, $articleImage, $articleTitle, $articleIntro, $articleThumb]);
+            this.push([$articleTitle, $articleImage, , $articleDate, $articleBody]);
             
            
         }, $scope.articles)
@@ -110,13 +121,13 @@ angular.module('starter.controllers', [])
         console.log($scope.articles);
         console.log($scope.articleList);
         
-        
-        /*angular.forEach($scope.list, function(i){
-             console.log(Object.keys(i));  
-        })*/
         $ionicLoading.hide();
+        
+        $timeout(function(){
+          $ionicSlideBoxDelegate.update();
+          /*$ionicSlideBoxDelegate.next();*/
+      }, 500)
     });
-    
     
 }])
 

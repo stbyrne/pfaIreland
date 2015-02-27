@@ -1,25 +1,32 @@
 <ion-view>
-    <ion-nav-buttons class="bar-energized">
-        <div class="buttons"><button class="button button-icon button-clear ion-drag" menu-toggle="left">
-        </button>
-        </div>
-            <h1 class="title">News</h1>
-        <div class="buttons">
-            <a href="#/app/main" class="button icon button-icon">Home</a>
-        </div>
-    </ion-nav-buttons>
+    <!--<ion-nav-buttons class="bar-energized">-->
+        <ion-nav-title>Article</ion-nav-title>
+        <ion-nav-bar class="bar-dark">
+            <ion-nav-back-button class="button-icon button-clear ion-ios7-arrow-left">
+            </ion-nav-back-button>
+            
+        </ion-nav-bar>
+            
+    <ion-slide-box show-pager="false" on-slide-changed="nextSlide()">
+            <ion-slide ng-repeat="article in articles" active="true" scrollbar-y="false">
+                <ion-content>
+                    
+                    <h4>{{article[0]}}</h4>
+                    
+                    <div class="list card">
 
-    <ion-content>
-        <ion>
-            <ion-item ng-repeat="detail in articleList" href="#/app/news/article" class="item item-thumbnail-left item-icon-right">
-        <img src={{detail[0]}}>
-        <h2>{{detail[1]}}</h2>
-        <p>{{detail[2]}}</p>
-        <span>{{detail[3]}}</span>
-          <i class="icon ion-ios7-arrow-right"></i>
-      </ion-item>
-        </ion>
-    </ion-content>
+
+                        <div class="item item-image">
+                            <img src="{{article[1]}}">
+                        </div>
+
+                    </div>
+                    
+                    <span>{{article[3]}}</span>
+                    <div>{{article[4]}}</div>
+                </ion-content>
+        </ion-slide>
+    </ion-slide-box>
 
 </ion-view>
 
