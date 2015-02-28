@@ -9,7 +9,7 @@
             
     <ion-slide-box show-pager="false" on-slide-changed="nextSlide()">
             <ion-slide ng-repeat="article in articles" active="true" scrollbar-y="false">
-                <ion-content>
+                <ion-content class="article">
                     
                     <h4>{{article[0]}}</h4>
                     
@@ -23,7 +23,7 @@
                     </div>
                     
                     <span>{{article[3]}}</span>
-                    <div>{{article[4]}}</div>
+                    <div ng-bind-html="article[4]"></div>
                 </ion-content>
         </ion-slide>
     </ion-slide-box>

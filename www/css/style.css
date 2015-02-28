@@ -1,5 +1,35 @@
 /* Empty. Add your own CSS if you like */
 
+/* Main Page*/
+
+.main{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../img/main/home_720.png');
+   / -webkit-background-size: cover; /* pour Chrome et Safari */
+    -moz-background-size: cover; /* pour Firefox */
+    -o-background-size: cover; /* pour Opera */
+    background-size: cover; /* version standardisée */
+}
+.bar.bar-dark {
+    /*border-color: #111;*/
+    /* background-color: #222222; */
+    /* background-image: linear-gradient(0deg, #111, #111 50%, transparent 50%); */
+    /* color: #fff; */
+    background: transparent;
+}
+
+.bar-dark .button {
+border-color: #111;
+background-color: #222222;
+color: #222222;
+}
+
 map {
   display: block;
   width: 100%;
@@ -44,4 +74,25 @@ i.icon.ion-loading-c {
 
 .slider{
     height: 100%;   
+}
+
+.article h4{
+    
+    text-align: center;
+    font-weight: 400;
+    
+}
+.article span{
+    
+    font-size: 12px;
+    color: rgb(0,170,50);
+    padding-left: 5px;
+    
+}
+.article p{
+    
+    padding: 10px 5px 5px;
+    font-size: 16px;
+    font-weight: 300;
+    
 }
