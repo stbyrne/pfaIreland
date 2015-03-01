@@ -150,16 +150,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives']
       }
     }
   })
-
-  .state('app.team', {
-    url: "/team",
-    views: {
-      'menuContent': {
-        templateUrl: "templates/team.html",
-        controller: 'TeamCtrl'
-      }
-    }
-  })
   
   .state('app.map', {
     url: "/map",
@@ -169,35 +159,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives']
         controller: 'MapCtrl'
       }
     }
-  })
-  /*.state('app.platforms', {
-      url: "/platforms",
-      views: {
-        'menuContent': {
-          templateUrl: "templates/platforms.html",
-          controller: 'PlatformCtrl'
-        }
-      }
-    })*/
-   /* .state('app.news', {
-      url: "/news",
-      views: {
-        'menuContent': {
-          templateUrl: "templates/news.html",
-          controller: 'NewsCtrl'
-        }
-      }
-  })*/
-
-  /*.state('app.single', {
-    url: "/news/:story",
-    views: {
-      'menuContent': {
-        templateUrl: "templates/story.html",
-        controller: 'NewsCtrl'
-      }
-    }
-  })*/;
+  });
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('app/main');
 });

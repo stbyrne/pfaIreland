@@ -38,7 +38,9 @@ angular.module('starter.controllers', [])
  }
 })
 
-.controller('AppCtrl', ['$scope', '$http', 'appFactory', function($scope, $http, appFactory) {
+.controller('AppCtrl', ['$scope', '$http', '$state', 'appFactory', function($scope, $http, $state, appFactory) {
+    
+    console.log('App Controller');
     
     $scope.app = [];
     $scope.item = {};
