@@ -17,8 +17,7 @@ angular.module('starter.controllers', [])
  return{
     getNews : function() {
         return $http({
-            /*url: 'http://pfai.fireflyweb.ie/mobile/pfainews',*/
-            url: 'content/getNews.json',
+            url: 'http://pfai.fireflyweb.ie/mobile/pfainews',
             method: 'GET'
         })
     }
@@ -30,8 +29,7 @@ angular.module('starter.controllers', [])
  return{
     getList : function() {
         return $http({
-            /*url: 'http://pfai.fireflyweb.ie/mobile/transferliststream',*/
-            url: 'content/getList.json',
+            url: 'http://pfai.fireflyweb.ie/mobile/transferliststream',
             method: 'GET'
         })
     }
