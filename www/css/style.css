@@ -16,19 +16,9 @@
     -o-background-size: cover; /* pour Opera */
     background-size: cover; /* version standardisée */
 }
-.bar.bar-dark {
-    /*border-color: #111;*/
-    /* background-color: #222222; */
-    /* background-image: linear-gradient(0deg, #111, #111 50%, transparent 50%); */
-    /* color: #fff; */
-    background: transparent;
-}
-
-.bar-dark .button {
-border-color: #111;
-background-color: #222222;
-color: #222222;
-}
+/*.button-main.ion-drag:before{
+    font-size: 32px;
+}*/
 
 map {
   display: block;
@@ -63,11 +53,18 @@ i.icon.ion-loading-c {
     font-size: 1.2em;
     font-weight: 600;
     color: rgb(0,170,50); 
+    background: rgb(210,210,210);
         
 }
 .transferlist .list-detail{
     font-size: 8px; 
         
+}
+
+/*News List*/
+.news-item span{
+    font-size: 12px;
+    color: rgb(0,170,50); 
 }
 
 /* Articles - Slidebox */
@@ -95,4 +92,10 @@ i.icon.ion-loading-c {
     font-size: 16px;
     font-weight: 300;
     
+}
+/*Article Image width, height fix */
+
+.article img {
+width: 100%;
+height: auto;
 }

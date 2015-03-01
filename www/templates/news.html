@@ -1,17 +1,19 @@
 <ion-view>
-    <ion-nav-buttons class="bar-energized">
-        <div class="buttons"><button class="button button-icon button-clear ion-drag" menu-toggle="left">
-        </button>
-        </div>
-            <h1 class="title">News</h1>
-        <div class="buttons">
+    <ion-nav-bar class="bar-dark">
+        <ion-nav-title>News</ion-nav-title>
+    <ion-nav-buttons>
+            <a class="button button-icon button-clear ion-drag" menu-toggle="left">
+            </a>
+                
+        </ion-nav-buttons>
+        <ion-nav-buttons side="right">
             <a href="#/app/main" class="button icon button-icon">Home</a>
-        </div>
-    </ion-nav-buttons>
+        </ion-nav-buttons>
+    </ion-nav-bar>
 
     <ion-content>
         <ion>
-            <ion-item ng-repeat="detail in articleList" href="#/app/news/article" class="item item-thumbnail-left item-icon-right">
+            <ion-item ng-repeat="detail in articleList" href="#/app/news/article" class="item item-thumbnail-left item-icon-right news-item">
         <img src={{detail[0]}}>
         <h2>{{detail[1]}}</h2>
         <p>{{detail[2]}}</p>
