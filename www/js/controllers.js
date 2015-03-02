@@ -64,7 +64,7 @@ angular.module('starter.controllers', [])
     $scope.goHome = function(){
         
         $timeout(function(){
-            sideMenuCtrl.close();
+            /*sideMenuCtrl.close();*/
             console.log('Home');
           /*$ionicSlideBoxDelegate.next();*/
       }, 500)
