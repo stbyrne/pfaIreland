@@ -38,7 +38,7 @@ angular.module('starter.controllers', [])
  }
 })
 
-.controller('AppCtrl', ['$scope', '$http', '$state', 'appFactory', function($scope, $http, $state, appFactory) {
+.controller('AppCtrl', ['$scope', '$http', '$timeout', 'appFactory', function($scope, $http, $timeout, appFactory) {
     
     console.log('App Controller');
     
@@ -50,8 +50,6 @@ angular.module('starter.controllers', [])
         console.log($scope.app);
         
     });
-    
-        
 
     $scope.setItem = function(item){
         $scope.$parent.item = item;
@@ -61,6 +59,15 @@ angular.module('starter.controllers', [])
     $scope.getItem = function(){
         return $scope.$parent.item;
         console.log($scope.$parent.item);
+    }
+    
+    $scope.goHome = function(){
+        
+        $timeout(function(){
+            sideMenuCtrl.close();
+            console.log('Home');
+          /*$ionicSlideBoxDelegate.next();*/
+      }, 500)
     }
    
     
