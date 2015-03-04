@@ -17,8 +17,8 @@ angular.module('starter.controllers', [])
  return{
     getNews : function() {
         return $http({
-            url: 'http://pfai.ie/mobile/pfainews',
-            /*url: 'content/getNews.json',*/
+            /*url: 'http://pfai.ie/mobile/pfainews',*/
+            url: 'content/getNews.json',
             method: 'GET'
         })
     }
@@ -30,8 +30,8 @@ angular.module('starter.controllers', [])
  return{
     getList : function() {
         return $http({
-            url: 'http://pfai.ie/mobile/transferliststream',
-            /*url: 'content/getList.json',*/
+            /*url: 'http://pfai.ie/mobile/transferliststream',*/
+            url: 'content/getList.json',
             method: 'GET'
         })
     }
