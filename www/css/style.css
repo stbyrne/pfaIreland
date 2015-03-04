@@ -95,3 +95,40 @@ i.icon.ion-loading-c {
     font-weight: 300;
     
 }
+
+/*Section content from JSON*/
+
+img.section-main{
+    width: 100%;
+    height: auto;
+    display: block;
+    position: relative;
+    margin: 0 auto 20px;
+    -webkit-box-shadow: 0 0 5px rgba(111, 111, 111, 0.85);
+    box-shadow: 0 0 5px rgba(111, 111, 111, 0.85);
+}
+
+.highlight{
+    background: rgb(0, 170, 50); 
+    color: #fff;
+    padding: 20px 0;
+    font-size: 1.6em;
+    font-weight:  400;
+    margin: 20px 0;
+}
+.lowlight{
+    background: rgb(210, 210, 210); 
+    padding: 15px 0;
+    font-size: 1.2em;
+    font-weight:  400;
+    margin-bottom: 20px; 
+}
+
+.static-image-small{
+    width: 50%;
+    display: block;
+    position: relative;
+    margin: 5px auto 10px;
+    -webkit-box-shadow: 0 0 5px rgba(111, 111, 111, 0.85);
+    box-shadow: 0 0 5px rgba(111, 111, 111, 0.85);
+}

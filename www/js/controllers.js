@@ -17,8 +17,8 @@ angular.module('starter.controllers', [])
  return{
     getNews : function() {
         return $http({
-            /*url: 'http://pfai.fireflyweb.ie/mobile/pfainews',*/
-            url: 'content/getNews.json',
+            url: 'http://pfai.ie/mobile/pfainews',
+            /*url: 'content/getNews.json',*/
             method: 'GET'
         })
     }
@@ -30,24 +30,44 @@ angular.module('starter.controllers', [])
  return{
     getList : function() {
         return $http({
-            /*url: 'http://pfai.fireflyweb.ie/mobile/transferliststream',*/
-            url: 'content/getList.json',
+            url: 'http://pfai.ie/mobile/transferliststream',
+            /*url: 'content/getList.json',*/
             method: 'GET'
         })
     }
  }
 })
 
-.controller('AppCtrl', ['$scope', '$http', '$timeout', 'appFactory', function($scope, $http, $timeout, appFactory) {
+.controller('AppCtrl', ['$scope', '$http', '$timeout', '$ionicLoading', 'appFactory', function($scope, $http, $timeout, $ionicLoading, appFactory) {
+    
+    $ionicLoading.show({
+    template: '<i class="icon ion-loading-c"></i>',
+    showBackdrop: true
+    });
     
     console.log('App Controller');
     
-    $scope.app = [];
-    $scope.item = {};
     
     appFactory.getJson().success(function(data){
-        $scope.app = data;
+        $scope.section = data.app.section;
+        console.log($scope.section);
+        
+        $scope.sections = [];
+        
+        angular.forEach($scope.section, function(value, key, i){
+            
+            var key = value['id'],
+                obj = {};
+            
+            this[key] = value['content'];
+            
+            console.log($scope.sections);
+               
+        }, $scope.sections);
+        
         console.log($scope.app);
+        
+        $ionicLoading.hide();
         
     });
 
