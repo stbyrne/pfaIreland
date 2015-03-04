@@ -75,6 +75,11 @@ i.icon.ion-loading-c {
     height: 100%;   
 }
 
+.article img{
+    width: 100%;
+    height: auto;
+}
+
 .article h4{
     
     text-align: center;
