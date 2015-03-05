@@ -56,17 +56,25 @@ i.icon.ion-loading-c {
     border-bottom: 1px solid rgba(150,150,150, 0.6);  
 }
 .list-title{
-    font-size: 1.6em;
+    font-size: 1.2em;
     font-weight: 400;
-    background-color: rgb(220,220,220);
+    background-color: rgb(245,245,245);
     color: rgb(0,170,50); 
         
 }
 
 .transferlist .list-detail{
-    font-size: 9px;
+    font-size: 8px;
     font-weight: 300;
         
+}
+
+.bar.bar-stable .title.title-green{
+color: rgb(0,170,50);
+}
+
+.transfer-list-icons .icon{
+    color: #ffa700;   
 }
 
 /* Articles - Slidebox */
@@ -122,7 +130,7 @@ img.section-main{
     margin: 20px 0;
 }
 .lowlight{
-    background: rgb(210, 210, 210); 
+    background: rgb(230,230,230); 
     padding: 15px 0;
     font-size: 1.2em;
     font-weight:  400;
@@ -136,4 +144,10 @@ img.section-main{
     margin: 5px auto 10px;
     -webkit-box-shadow: 0 0 5px rgba(111, 111, 111, 0.85);
     box-shadow: 0 0 5px rgba(111, 111, 111, 0.85);
+}
+
+.section-content p{
+    padding: 0 5px;
+    font-weight: 300;
+    /*font-size: 1em;*/
 }
