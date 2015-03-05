@@ -23,13 +23,17 @@
     border-top: 2px solid green;
     /*padding: 40px 0;*/
 }
+
 .contact-list .list .item{
     background-color: transparent;
     border: none;
 }
 .contact-list .list .item .item-content{
     background-color: rgba(60, 60, 60, 0.4);
-    padding: 40px 140px 40px 20px;
+    padding: 20px 140px 20px 20px;
+}
+.contact-list .list .item .item-content:active{
+    background-color: rgba(255,255,255, 0.6);
 }
 .contact-list .list .item .item-content h4{
     font-size: 2em;
@@ -37,14 +41,23 @@
     color: rgb(255,255,255);
     border-bottom: 5px solid rgb(255, 170, 0);
 }
+.contact-list .list .item .item-content:active h4{
+    color: rgb(40,40,40);
+}
 .contact-list .list .item .item-content p{
     font-size: .6em;
     font-weight: 200;
     color: rgb(255,255,255);
 }
+.contact-list .list .item .item-content:active p{
+    color: rgb(40,40,40);
+}
 .contact-list .list .item .item-content i{
     color: rgb(255,255,255);
     font-size: 40px;
+}
+.contact-list .list .item .item-content:active i{
+    color: green;
 }
 .contact{
     position: absolute;
