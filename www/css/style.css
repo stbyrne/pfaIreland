@@ -17,9 +17,10 @@
     background-size: cover; /* version standardisée */
 }
 
-.bar-light .bar-header{
+.bar-light{
     background-color: transparent;
     border: none;
+    border-width: 0;
 }
 
 map {
@@ -70,7 +71,7 @@ i.icon.ion-loading-c {
 }
 
 .bar.bar-stable .title.title-green{
-color: rgb(0,170,50);
+    color: rgb(0,170,50);
 }
 
 .transfer-list-icons .icon{

@@ -40,6 +40,16 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives']
     }
   })
   
+  .state('app.contact', {
+    url: "/contact",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/contact.html",
+        controller: 'AppCtrl'
+      }
+    }
+  })
+  
   .state('app.transfer', {
     
     url: "/transfer",
