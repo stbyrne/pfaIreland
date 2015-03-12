@@ -144,7 +144,7 @@ angular.module('starter.controllers', [])
             
             $scope.articleList.push([$articleThumb, $articleTitle, $articleIntro,$articleDate]);
                 
-            this.push([$articleTitle, $articleImage, , $articleDate, $articleBody]);
+            this.push([$articleTitle, $articleImage, $articleDate, $articleBody]);
             
            
         }, $scope.articles)

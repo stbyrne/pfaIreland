@@ -11,13 +11,17 @@
 
     <ion-content class="section-content">
         <div class="transferlist">
+            <label class="item item-input">
+                <i class="icon ion-search placeholder-icon"></i>
+                <input type="text" placeholder="Search Transfer List" ng-model="searchList">
+            </label>
             <div class="row list-title">
                 <div class="col">Player</div>
                 <div class="col">Club</div>
                 <div class="col">Pos</div>
                 <div class="col">Dob</div>
             </div>
-            <div class="row" ng-repeat="player in players track by $index">
+            <div class="row" ng-repeat="player in players | filter:searchList">
                 <div class="col list-detail" ng-repeat="(key, detail) in player">
 
                     <div class="col">{{detail}}</div>
