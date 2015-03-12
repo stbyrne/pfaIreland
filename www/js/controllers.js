@@ -38,7 +38,7 @@ angular.module('starter.controllers', [])
  }
 })
 
-.controller('AppCtrl', ['$scope', '$http', '$timeout', '$ionicLoading', 'appFactory', function($scope, $http, $timeout, $ionicLoading, appFactory) {
+.controller('AppCtrl', ['$scope', '$http', '$timeout', '$ionicLoading', '$ionicPopover', 'appFactory', function($scope, $http, $timeout, $ionicLoading, $ionicPopover, appFactory) {
     
     $ionicLoading.show({
     template: '<i class="icon ion-loading-c"></i>',
@@ -89,6 +89,39 @@ angular.module('starter.controllers', [])
           /*$ionicSlideBoxDelegate.next();*/
       }, 500)
     }
+    
+          var template = '<ion-popover-view><ion-content><div class="list"><h2>Room 214 Players Union Offices</h2><p>National Sports Campus</p><p>Abbotstown</p><p>Dublin 15</p><p>Ireland</p></div></ion-content></ion-popover-view>';
+
+  $scope.popover = $ionicPopover.fromTemplate(template, {
+    scope: $scope,
+  });
+
+  // .fromTemplateUrl() method
+  $ionicPopover.fromTemplateUrl('my-popover.html', {
+    scope: $scope,
+  }).then(function(popover) {
+    $scope.popover = popover;
+  });
+
+
+  $scope.openPopover = function($event) {
+    $scope.popover.show($event);
+  };
+  $scope.closePopover = function() {
+    $scope.popover.hide();
+  };
+  //Cleanup the popover when we're done with it!
+  $scope.$on('$destroy', function() {
+    $scope.popover.remove();
+  });
+  // Execute action on hide popover
+  $scope.$on('popover.hidden', function() {
+    // Execute action
+  });
+  // Execute action on remove popover
+  $scope.$on('popover.removed', function() {
+    // Execute action
+  });
    
     
 }])

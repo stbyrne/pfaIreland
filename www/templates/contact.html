@@ -2,19 +2,23 @@
     <ion-nav-bar class="bar-light">
         <ion-nav-buttons>
             <div class="buttons">
-            <a href="#/app/main" class="button icon button-icon ion-ios7-arrow-back"></a>
-        </div>
+                <a href="#/app/main" class="button icon button-icon ion-ios7-arrow-back"></a>
+            </div>
+            <div class="item-button-right">
+                <button class="button button-icon ion-ios7-keypad-outline" ng-click="popover.show($event)"></button>
+            </div>
+        </ion-nav-buttons>
     </ion-nav-bar>
 
     <ion-pane class="contact">
         <ion-list class="contact-list">
-            <ion-item class="item-divider item-text-centre">
+            <!--<ion-item class="item-divider item-text-centre">
                 <h2>Room 214 Players Union Offices</h2>
                 <p>National Sports Campus</p>
                 <p>Abbotstown</p>
                 <p>Dublin 15</p>
                 <p>Ireland</p>
-            </ion-item>
+            </ion-item>-->
             <ion-item class="item-icon-right" href="#">
                 <h4>Call</h4>
                 <p>direct number to our offices</p>
