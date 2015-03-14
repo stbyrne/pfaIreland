@@ -173,10 +173,6 @@ angular.module('starter.controllers', [])
             $scope.articleList.push([$articleThumb, $articleTitle, $articleIntro,$articleDate]);
                 
             this.push([$articleTitle, $articleImage, $articleDate, $articleBody]);
-<<<<<<< Updated upstream
-=======
-            
->>>>>>> Stashed changes
             
         }, $scope.articles)
         
