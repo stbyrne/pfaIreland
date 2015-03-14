@@ -50,17 +50,22 @@ angular.module('starter.controllers', [])
     
     appFactory.getJson().success(function(data){
         $scope.section = data.app.section;
+        console.log($scope.section);
         
         $scope.sections = [];
         
         angular.forEach($scope.section, function(value, key, i){
             
-            var key = value['id']/*,
-                obj = {}*/;
+            var key = value['id'],
+                obj = {};
             
             this[key] = value['content'];
+            
+            console.log($scope.sections);
                
         }, $scope.sections);
+        
+        console.log($scope.app);
         
         $ionicLoading.hide();
         
@@ -173,11 +178,8 @@ angular.module('starter.controllers', [])
             $scope.articleList.push([$articleThumb, $articleTitle, $articleIntro,$articleDate]);
                 
             this.push([$articleTitle, $articleImage, $articleDate, $articleBody]);
-<<<<<<< Updated upstream
-=======
             
->>>>>>> Stashed changes
-            
+           
         }, $scope.articles)
         
         console.log($scope.articles);
