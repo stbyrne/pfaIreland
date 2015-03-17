@@ -130,6 +130,11 @@ angular.module('starter.controllers', [])
         $scope.$parent.myNewsArticle=num;
     }
     
+    $scope.clearSearch = function(){
+        console.log('Hit!');
+        $scope.searchNews = '';   
+    }
+    
     
     $ionicLoading.show({
     template: '<i class="icon ion-loading-c"></i>',
