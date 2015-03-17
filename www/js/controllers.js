@@ -126,22 +126,15 @@ angular.module('starter.controllers', [])
     $scope.news = [];
     $scope.article = [];
     
+    $scope.setIndex = function(num){
+        $scope.$parent.myNewsArticle=num;
+    }
+    
     
     $ionicLoading.show({
     template: '<i class="icon ion-loading-c"></i>',
     showBackdrop: true
     });
-    
-    /*$scope.setArticle = function(item){
-        $scope.article = item;
-        console.log(item);
-       
-    }
-    $scope.getItem = function(){
-        return $scope.$parent.item;
-        console.log($scope.$parent.item);
-    }*/
-    
     
     newsFactory.getNews().success(function(data){
         

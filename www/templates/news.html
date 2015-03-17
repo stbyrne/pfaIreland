@@ -15,7 +15,7 @@
                 <input type="text" placeholder="Search News" ng-model="searchNews">
             </label>
         <ion>
-            <ion-item ng-repeat="detail in articleList | filter:searchNews" href="#/app/news/article" class="item item-thumbnail-left item-icon-right">
+            <ion-item ng-repeat="detail in articleList | filter:searchNews" href="#/app/news/article" class="item item-thumbnail-left item-icon-right" ng-click="setIndex($index)">
         <img src={{detail[0]}}>
         <h2>{{detail[1]}}</h2>
         <p>{{detail[2]}}</p>
