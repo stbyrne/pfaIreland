@@ -10,13 +10,13 @@
     </ion-nav-buttons>
 
     <ion-content>
-        <label class="item item-input">
+        <div class="item item-input">
                 <i class="icon ion-search placeholder-icon"></i>
-                <input type="text" placeholder="Search News" ng-model="searchNews">
-            <i ng-if="searchNews.length"
-        class="icon button-icon ion-ios7-close-outline" ng-click="searchNews=''"></i>
-
-            </label>
+                <input type="search" placeholder="Search News" ng-model="searchNews">
+                <button ng-if="searchNews.length"
+        class="icon button-icon ion-ios7-close-outline" ng-click="$parent.searchNews=''">
+                </button>
+            </div>
         <ion>
             <ion-item ng-repeat="detail in articleList | filter:searchNews" href="#/app/news/article" class="item item-thumbnail-left item-icon-right" ng-init="num=$index" ng-click="setIndex(num)">
         <img src={{detail[0]}}>

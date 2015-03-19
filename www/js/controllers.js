@@ -130,12 +130,10 @@ angular.module('starter.controllers', [])
         $scope.$parent.myNewsArticle=num;
     }
     
-    $scope.clearSearch = function(){
-        console.log('Hit!');
-        $scope.searchNews = '';   
-    }
-    
-    
+    /*$scope.clearSearch = function(){
+        $scope.$parent.searchNews = '';   
+    }*/
+
     $ionicLoading.show({
     template: '<i class="icon ion-loading-c"></i>',
     showBackdrop: true
@@ -146,8 +144,6 @@ angular.module('starter.controllers', [])
         $scope.news = data;
         $scope.articles = [];
         $scope.articleList = [];
-        
-        
         
         angular.forEach($scope.news, function(value, key, i){
             
@@ -234,22 +230,7 @@ angular.module('starter.controllers', [])
     
     
 }])
-/*.controller('PlatformCtrl', function ($scope, $http) {
-    
-    $scope.platform = {};
-      
-      $http.get('content/platform.json').success(function(data) {
-            $scope.platforms = data;
-          console.log(data);
-        })
-      $scope.setPlatform = function(platform){
-        $scope.$parent.platform = platform;
-       
-    }
-    $scope.getPlatform = function(){
-        return $scope.$parent.platform;
-    }
-})*/
+
 .controller('MapCtrl', function($scope, $ionicLoading) {
   $scope.mapCreated = function(map) {
     $scope.map = map;
