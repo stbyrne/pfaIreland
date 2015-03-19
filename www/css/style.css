@@ -21,13 +21,12 @@
     width: 100%;
     position: fixed;
     bottom: 0;
-    border-top: 2px solid green;
-    /*padding: 40px 0;*/
 }
 
 .contact-list .list .item{
     background-color: transparent;
     border: none;
+    border-top: 2px solid green;
 }
 .contact-list .list .item .item-content{
     background-color: rgba(60, 60, 60, 0.65);
