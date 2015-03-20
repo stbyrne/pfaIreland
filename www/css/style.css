@@ -95,6 +95,7 @@ contact-list .list .item-divider h2, contact-list .list .item-divider p{
 }
 .bar.bar-light{
     background-color: transparent;
+    border: none;
 }
 
 map {
