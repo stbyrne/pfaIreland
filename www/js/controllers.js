@@ -5,7 +5,7 @@ angular.module('starter.controllers', [])
  return{
     getJson : function() {
         return $http({
-            url: 'content/content.json',
+            url: 'https://googledrive.com/host/0B0778NZ3pAKKcHYxWjBiLTc5UjA/content_v2.json',
             method: 'GET'
         })
     }
@@ -49,6 +49,7 @@ angular.module('starter.controllers', [])
     
     
     appFactory.getJson().success(function(data){
+        console.log('Got from Google');
         $scope.section = data.app.section;
         
         $scope.sections = [];
@@ -64,7 +65,25 @@ angular.module('starter.controllers', [])
         
         $ionicLoading.hide();
         
-    });
+        }).error(function(){
+            $http.get('content/content.json').success(function(data) {
+                $scope.section = data.app.section;
+
+            $scope.sections = [];
+
+            angular.forEach($scope.section, function(value, key, i){
+
+                var key = value['id']/*,
+                    obj = {}*/;
+
+                this[key] = value['content'];
+
+            }, $scope.sections);
+
+            $ionicLoading.hide();
+            })
+            
+        });
 
     $scope.setItem = function(item){
         $scope.$parent.item = item;
