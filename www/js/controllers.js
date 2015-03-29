@@ -154,11 +154,13 @@ angular.module('starter.controllers', [])
     }*/
 
     $ionicLoading.show({
-    template: '<i class="icon ion-loading-c"></i>',
+    template: '<p>Just getting the latest news</p><i class="icon ion-loading-c"></i>',
     showBackdrop: true
     });
     
     newsFactory.getNews().success(function(data){
+        
+        console.log(data);
         
         $scope.news = data;
         $scope.articles = [];
@@ -172,7 +174,8 @@ angular.module('starter.controllers', [])
                 $articleDate = $timestamp.toDateString(),
                 $articleImage = $(value["field_image"]).attr('src'),
                 $articleTitle = value["node_title"],
-                $articleIntro = $getBody.replace('<p>', '').substr(0,95),
+                /*$articleIntro = $getBody.replace('<p*>', '').substr(0,95),*/
+                $articleIntro = $($getBody).html(),
                 $articleThumb = $(value["thumbnail"]).attr('src');
             
             $.each($($articleBody).find('img'), function(){
@@ -254,6 +257,8 @@ angular.module('starter.controllers', [])
   $scope.mapCreated = function(map) {
     $scope.map = map;
   };
+    
+    var defaultLatLng = new google.maps.LatLng(53.3954533, -6.355980); 
 
   $scope.centerOnMe = function () {
     console.log("Centering");
@@ -261,17 +266,74 @@ angular.module('starter.controllers', [])
       return;
     }
 
-    $scope.loading = $ionicLoading.show({
-      content: 'Getting current location...',
-      showBackdrop: false
+    $ionicLoading.show({
+        template: '<p>Lets find your current location</p><i class="icon ion-loading-c"></i>',
+        showBackdrop: true
     });
 
     navigator.geolocation.getCurrentPosition(function (pos) {
-      console.log('Got pos', pos);
-      $scope.map.setCenter(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
-      $scope.loading.hide();
+        
+        console.log('Got pos', pos);
+        var loc = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
+        $scope.map.setCenter(loc);
+        
+        new google.maps.Marker({
+            position: defaultLatLng,
+            map: $scope.map,
+            title: "PFA Ireland Offices"
+        });
+        new google.maps.Marker({
+            position: loc,
+            map: $scope.map,
+            title: "Here you are"
+        });
+        $ionicLoading.hide();
+        
     }, function (error) {
       alert('Unable to get location: ' + error.message);
     });
   };
+    /////////
+    
+    /*google.maps.event.addListener(map, 'click', function(event) {
+        marker = new google.maps.Marker({
+            position: event.latLng,
+            map: map
+        });
+    });
+    */
+    //////////
+    
+    function setCenter(latlng) {
+        var myOptions = {
+            center: latlng,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        // Add an overlay to the map of current lat/lng
+        // Add custom image to map
+        var pfaiOffices = 'images/loc.svg';
+        /*var mark = 'images/mark.svg';*/
+        var marker = new google.maps.Marker({
+            position: latlng,
+            map: map,
+            /*icon: mark,*/
+            title: "You are here!"
+        });
+        var marker2 = new google.maps.Marker({
+            position: defaultLatLng,
+            map: map,
+            icon: pfaiOffices,
+            title: "PFA Ireland Offices"
+        });
+        
+        google.maps.event.addListener(marker, 'click', function() {
+            alert('You are here');
+        });
+        
+        google.maps.event.addListener(marker2, 'click', function() {
+            alert('PFA Ireland Offices');
+        });
+    }
+    
+    /////////////////
 });
