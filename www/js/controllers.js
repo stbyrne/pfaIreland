@@ -95,6 +95,11 @@ angular.module('starter.controllers', [])
         console.log($scope.$parent.item);
     }
     
+    $scope.openURL = function(urlString){
+            myURL = encodeURI(urlString);
+            window.open(myURL, '_system', 'location=yes');
+        }
+    
     $scope.goHome = function(){
         
         $timeout(function(){
@@ -277,16 +282,26 @@ angular.module('starter.controllers', [])
         var loc = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
         $scope.map.setCenter(loc);
         
+        var pfaiOffices = 'img/loc.svg';
+        
         new google.maps.Marker({
             position: defaultLatLng,
             map: $scope.map,
+            icon: pfaiOffices,
             title: "PFA Ireland Offices"
         });
-        new google.maps.Marker({
+        
+        var infowindow = new google.maps.InfoWindow({
+    content: "<span>Here you are</span>"
+});
+        var location = new google.maps.Marker({
             position: loc,
-            map: $scope.map,
-            title: "Here you are"
+            map: $scope.map
         });
+        
+        google.maps.event.addListener(location, 'click', function() {
+  infowindow.open($scope.map,location);
+});
         $ionicLoading.hide();
         
     }, function (error) {
