@@ -146,6 +146,11 @@ resource-list .list .item-divider h2, resource-list .list .item-divider p{
 .bar.bar-light{
     background-color: transparent;
     border: none;
+    border-width: 0;
+}
+.item-button-right > .button-home, .item-button-right > .button-more{
+    top: 5px;
+    right: 2px;
 }
 
 map {
