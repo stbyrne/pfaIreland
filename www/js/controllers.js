@@ -5,7 +5,7 @@ angular.module('starter.controllers', [])
  return{
     getJson : function() {
         return $http({
-            url: 'https://googledrive.com/host/0B0778NZ3pAKKcHYxWjBiLTc5UjA/content_v2.json',
+            url: 'https://googledrive.com/host/0B0778NZ3pAKKcHYxWjBiLTc5UjA/content_v2.jso',
             method: 'GET'
         })
     }
@@ -41,7 +41,7 @@ angular.module('starter.controllers', [])
 .controller('AppCtrl', ['$scope', '$http', '$timeout', '$ionicLoading', '$ionicPopover', 'appFactory', function($scope, $http, $timeout, $ionicLoading, $ionicPopover, appFactory) {
     
     $ionicLoading.show({
-    template: '<i class="icon ion-loading-c"></i>',
+    template: '<p>PFA Ireland is loading</p><i class="icon ion-loading-c"></i>',
     showBackdrop: true
     });
     
@@ -66,19 +66,22 @@ angular.module('starter.controllers', [])
         $ionicLoading.hide();
         
         }).error(function(){
+        
             $http.get('content/content.json').success(function(data) {
+                
+                console.log('Got from Local');
                 $scope.section = data.app.section;
 
-            $scope.sections = [];
+                $scope.sections = [];
 
-            angular.forEach($scope.section, function(value, key, i){
+                angular.forEach($scope.section, function(value, key, i){
 
                 var key = value['id']/*,
                     obj = {}*/;
 
                 this[key] = value['content'];
 
-            }, $scope.sections);
+                }, $scope.sections);
 
             $ionicLoading.hide();
             })
@@ -96,6 +99,7 @@ angular.module('starter.controllers', [])
     }
     
     $scope.openURL = function(urlString){
+            console.log(urlString);
             myURL = encodeURI(urlString);
             window.open(myURL, '_system', 'location=yes');
         }
@@ -109,7 +113,7 @@ angular.module('starter.controllers', [])
       }, 500)
     }
     
-          var template = '<ion-popover-view><ion-content><div class="list"><h2>Room 214 Players Union Offices</h2><p>National Sports Campus</p><p>Abbotstown</p><p>Dublin 15</p><p>Ireland</p></div></ion-content></ion-popover-view>';
+          var template = '<ion-popover-view><ion-content><div class="list"><h4>Room 214 Players Union Offices</h4><p>National Sports Campus</p><p>Abbotstown</p><p>Dublin 15</p><p>Ireland</p></div></ion-content></ion-popover-view>';
 
   $scope.popover = $ionicPopover.fromTemplate(template, {
     scope: $scope,

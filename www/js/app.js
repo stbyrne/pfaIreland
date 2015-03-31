@@ -50,6 +50,16 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives']
     }
   })
   
+  .state('app.resources', {
+    url: "/resources",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/resources.html",
+        controller: 'AppCtrl'
+      }
+    }
+  })
+  
   .state('app.transfer', {
     
     url: "/transfer",
