@@ -5,7 +5,7 @@ angular.module('starter.controllers', [])
  return{
     getJson : function() {
         return $http({
-            url: 'https://googledrive.com/host/0B0778NZ3pAKKcHYxWjBiLTc5UjA/content_v2.jso',
+            url: 'https://googledrive.com/host/0B0778NZ3pAKKcHYxWjBiLTc5UjA/content_v2.json',
             method: 'GET'
         })
     }
