@@ -49,7 +49,6 @@ angular.module('starter.controllers', [])
     
     
     appFactory.getJson().success(function(data){
-        console.log('Got from Google');
         $scope.section = data.app.section;
         
         $scope.sections = [];
@@ -69,7 +68,6 @@ angular.module('starter.controllers', [])
         
             $http.get('content/content.json').success(function(data) {
                 
-                console.log('Got from Local');
                 $scope.section = data.app.section;
 
                 $scope.sections = [];
