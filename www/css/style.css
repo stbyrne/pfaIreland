@@ -149,8 +149,9 @@ resource-list .list .item-divider h2, resource-list .list .item-divider p{
     border-width: 0;
 }
 .item-button-right > .button-home, .item-button-right > .button-more{
-    top: 5px;
+    bottom: 5px;
     right: 2px;
+    top:auto;
 }
 
 map {
