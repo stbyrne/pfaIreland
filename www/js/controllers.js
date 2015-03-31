@@ -184,7 +184,7 @@ angular.module('starter.controllers', [])
                 $articleImage = $(value["field_image"]).attr('src'),
                 $articleTitle = value["node_title"],
                 /*$articleIntro = $getBody.replace('<p*>', '').substr(0,95),*/
-                $articleIntro = $($getBody).html(),
+                $articleIntro = $($getBody).html().substr(0,80) + ' ...',
                 $articleThumb = $(value["thumbnail"]).attr('src');
             
             $.each($($articleBody).find('img'), function(){

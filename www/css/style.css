@@ -283,3 +283,17 @@ img.section-main{
     font-weight: 300;
     /*font-size: 1em;*/
 }
+
+@media only screen and (min-width: 48em) {
+    
+    .main{
+        background-image: url('../img/main/home_768.png');
+    }
+    .contact{
+        background-image: url('../img/main/home_768_blur.png');
+    }
+    .resources{
+        background-image: url('../img/main/home_768_blur.png');
+    }
+    
+}
