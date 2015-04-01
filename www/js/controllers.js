@@ -4,10 +4,7 @@ angular.module('starter.controllers', [])
     
     return $http({
         url: 'https://googledrive.com/host/0B0778NZ3pAKKcHYxWjBiLTc5UjA/content_v2.json',
-        method: 'GET',
-            headers: {
-                Accept: "application/json, text/plain, */*"   
-            }
+        method: 'GET'
     });
 })
 
@@ -38,10 +35,10 @@ angular.module('starter.controllers', [])
 
 .controller('AppCtrl', ['$scope', '$http', '$timeout', '$ionicLoading', '$ionicPopover', 'appFactory', function($scope, $http, $timeout, $ionicLoading, $ionicPopover, appFactory) {
     
-    $ionicLoading.show({
+    /*$ionicLoading.show({
     template: '<p>PFA Ireland is loading</p><i class="icon ion-loading-c"></i>',
     showBackdrop: true
-    });
+    });*/
     
     console.log('App Controller');
     
@@ -61,7 +58,7 @@ angular.module('starter.controllers', [])
                
         }, $scope.sections);
         
-        $ionicLoading.hide();
+        /*$ionicLoading.hide();*/
         
         }, function(){
         
@@ -84,7 +81,7 @@ angular.module('starter.controllers', [])
 
             })
             
-            $ionicLoading.hide();
+            /*$ionicLoading.hide();*/
             
         });
 
