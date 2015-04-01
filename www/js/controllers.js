@@ -6,7 +6,9 @@ angular.module('starter.controllers', [])
     getJson : function() {
         return $http({
             url: 'https://googledrive.com/host/0B0778NZ3pAKKcHYxWjBiLTc5UjA/content_v2.json',
-            method: 'GET'
+            method: 'GET',
+            'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+            }
         })
     }
  }
@@ -48,8 +50,9 @@ angular.module('starter.controllers', [])
     console.log('App Controller');
     
     
-    appFactory.getJson().success(function(data){
+    appFactory.getJson().success(function(data, status){
         $scope.section = data.app.section;
+        alert(status);
         
         $scope.sections = [];
         
@@ -66,9 +69,10 @@ angular.module('starter.controllers', [])
         
         }).error(function(){
         
-            $http.get('content/content.json').success(function(data) {
+            $http.get('content/content.json').success(function(data, status) {
                 
                 $scope.section = data.app.section;
+                alert(status);
 
                 $scope.sections = [];
 
