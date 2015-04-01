@@ -60,7 +60,7 @@ angular.module('starter.controllers', [])
         
         /*$ionicLoading.hide();*/
         
-        }, function(){
+        }, 
         
             $http.get('content/content.json').success(function(data, status) {
                 
@@ -80,15 +80,12 @@ angular.module('starter.controllers', [])
 
                 }, $scope.sections);
                 
-                alert($scope.sections);
                
             })
             
-            
-            
             /*$ionicLoading.hide();*/
             
-        });
+        );
 
     $scope.setItem = function(item){
         $scope.$parent.item = item;
