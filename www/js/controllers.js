@@ -65,6 +65,7 @@ angular.module('starter.controllers', [])
             $http.get('content/content.json').success(function(data, status) {
                 
                 $scope.section = data.app.section;
+                
                 console.log('Loading embedded JSON instead');
         
 
@@ -78,8 +79,12 @@ angular.module('starter.controllers', [])
                 this[key] = value['content'];
 
                 }, $scope.sections);
-
+                
+                alert($scope.sections);
+               
             })
+            
+            
             
             /*$ionicLoading.hide();*/
             
