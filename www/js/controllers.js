@@ -8,6 +8,14 @@ angular.module('starter.controllers', [])
     });
 })
 
+.factory('appFallBack', function($http) {
+    
+    return $http({
+        url: 'content/content.json',
+        method: 'GET'
+    });
+})
+
 .factory('newsFactory', function($http) {
     
  return{
@@ -33,7 +41,7 @@ angular.module('starter.controllers', [])
  }
 })
 
-.controller('AppCtrl', ['$scope', '$http', '$timeout', '$ionicLoading', '$ionicPopover', 'appFactory', function($scope, $http, $timeout, $ionicLoading, $ionicPopover, appFactory) {
+.controller('AppCtrl', ['$scope', '$http', '$timeout', '$ionicLoading', '$ionicPopover', 'appFactory', 'appFallBack', function($scope, $http, $timeout, $ionicLoading, $ionicPopover, appFactory, appFallBack) {
     
     /*$ionicLoading.show({
     template: '<p>PFA Ireland is loading</p><i class="icon ion-loading-c"></i>',
@@ -43,7 +51,7 @@ angular.module('starter.controllers', [])
     console.log('App Controller');
     
     
-    appFactory.success(function(data, status){
+    appFactory.success(function(data, status, headers, config){
         console.log('Remote');
        
         $scope.section = data.app.section;
@@ -62,31 +70,29 @@ angular.module('starter.controllers', [])
         
         })
         
-        .error( function(){
-            
-            console.log('Local');
+        .error(function(){
         
-            $http.get('content/content.json').success(function(data, status) {
-                
+                appFallBack.success(function(data, status, headers, config){
+                console.log('Local');
+
                 $scope.section = data.app.section;
-                
-                console.log('Loading embedded JSON instead');
-        
 
                 $scope.sections = [];
 
                 angular.forEach($scope.section, function(value, key, i){
 
-                var key = value['id'];
+                    var key = value['id'];
 
-                this[key] = value['content'];
+                    this[key] = value['content'];
 
                 }, $scope.sections);
-                
-            })
-            /*$ionicLoading.hide();*/
-    });
 
+                /*$ionicLoading.hide();*/
+
+                })
+            }
+        );
+    
     $scope.setItem = function(item){
         $scope.$parent.item = item;
         console.log(item);
