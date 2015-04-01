@@ -6,9 +6,7 @@ angular.module('starter.controllers', [])
     getJson : function() {
         return $http({
             url: 'https://googledrive.com/host/0B0778NZ3pAKKcHYxWjBiLTc5UjA/content_v2.json',
-            method: 'GET',
-            'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
-            }
+            method: 'GET'
         })
     }
  }
