@@ -4,7 +4,10 @@ angular.module('starter.controllers', [])
     
     return $http({
         url: 'https://googledrive.com/host/0B0778NZ3pAKKcHYxWjBiLTc5UjA/content_v2.json',
-        method: 'GET'
+        method: 'GET',
+            headers: {
+                Accept: "application/json, text/plain, */*"   
+            }
     });
 })
 
@@ -43,8 +46,9 @@ angular.module('starter.controllers', [])
     console.log('App Controller');
     
     
-    appFactory.success(function(data, status){
-        $scope.section = data.app.section;
+    appFactory.then(function(response){
+        console.log(response);
+        $scope.section = response.data.app.section;
         
         $scope.sections = [];
         
@@ -59,7 +63,7 @@ angular.module('starter.controllers', [])
         
         $ionicLoading.hide();
         
-        }).error(function(data,status){
+        }, function(){
         
             $http.get('content/content.json').success(function(data, status) {
                 
