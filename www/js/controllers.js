@@ -82,8 +82,9 @@ angular.module('starter.controllers', [])
 
                 }, $scope.sections);
 
-            $ionicLoading.hide();
             })
+            
+            $ionicLoading.hide();
             
         });
 
