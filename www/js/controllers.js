@@ -43,16 +43,16 @@ angular.module('starter.controllers', [])
     console.log('App Controller');
     
     
-    appFactory.then(function(response){
-        console.log(response);
-        $scope.section = response.data.app.section;
+    appFactory.success(function(data, status){
+        console.log('Remote');
+       
+        $scope.section = data.app.section;
         
         $scope.sections = [];
         
         angular.forEach($scope.section, function(value, key, i){
             
-            var key = value['id']/*,
-                obj = {}*/;
+            var key = value['id'];
             
             this[key] = value['content'];
                
@@ -60,7 +60,11 @@ angular.module('starter.controllers', [])
         
         /*$ionicLoading.hide();*/
         
-        }, 
+        })
+        
+        .error( function(){
+            
+            console.log('Local');
         
             $http.get('content/content.json').success(function(data, status) {
                 
@@ -73,19 +77,15 @@ angular.module('starter.controllers', [])
 
                 angular.forEach($scope.section, function(value, key, i){
 
-                var key = value['id']/*,
-                    obj = {}*/;
+                var key = value['id'];
 
                 this[key] = value['content'];
 
                 }, $scope.sections);
                 
-               
             })
-            
             /*$ionicLoading.hide();*/
-            
-        );
+    });
 
     $scope.setItem = function(item){
         $scope.$parent.item = item;
