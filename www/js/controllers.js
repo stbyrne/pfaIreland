@@ -2,14 +2,10 @@ angular.module('starter.controllers', [])
 
 .factory('appFactory', function($http) {
     
- return{
-    getJson : function() {
-        return $http({
-            url: 'https://googledrive.com/host/0B0778NZ3pAKKcHYxWjBiLTc5UjA/content_v2.json',
-            method: 'GET'
-        })
-    }
- }
+    return $http({
+        url: 'https://googledrive.com/host/0B0778NZ3pAKKcHYxWjBiLTc5UjA/content_v2.json',
+        method: 'GET'
+    });
 })
 
 .factory('newsFactory', function($http) {
@@ -18,7 +14,6 @@ angular.module('starter.controllers', [])
     getNews : function() {
         return $http({
             url: 'http://pfai.ie/mobile/pfainews',
-            /*url: 'content/getNews.json',*/
             method: 'GET'
         })
     }
@@ -48,9 +43,8 @@ angular.module('starter.controllers', [])
     console.log('App Controller');
     
     
-    appFactory.getJson().success(function(data, status){
+    appFactory.success(function(data, status){
         $scope.section = data.app.section;
-        alert(status);
         
         $scope.sections = [];
         
@@ -65,12 +59,13 @@ angular.module('starter.controllers', [])
         
         $ionicLoading.hide();
         
-        }).error(function(){
+        }).error(function(data,status){
         
             $http.get('content/content.json').success(function(data, status) {
                 
                 $scope.section = data.app.section;
-                alert(status);
+                console.log('Loading embedded JSON instead');
+        
 
                 $scope.sections = [];
 
