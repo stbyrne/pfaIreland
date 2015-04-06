@@ -1,3 +1,24 @@
+var interceptor = function ($q, $location) {
+    return {
+        request: function (config) {
+            /*console.log(config);*/
+            return config;
+        },
+
+        response: function (result) {
+            console.log('Response from Server');
+            
+            return result;
+        },
+
+        responseError: function (rejection) {
+            console.log('Failed with', rejection.status, 'status');
+
+            return $q.reject(rejection);
+        }
+    }
+};
+
 // Ionic Starter App
 
 // angular.module is a global place for creating, registering and retrieving Angular modules
@@ -19,7 +40,10 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives']
   });
 })
 
-.config(function($stateProvider, $urlRouterProvider) {
+.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
+    
+    $httpProvider.interceptors.push(interceptor);
+    
   $stateProvider
 
   .state('app', {

@@ -1,6 +1,6 @@
 angular.module('starter.controllers', [])
 
-.factory('appFactory', function($http) {
+.factory('appFactory', function($http, $q) {
     
     return $http({
         url: 'https://googledrive.com/host/0B0778NZ3pAKKcHYxWjBiLTc5UjA/content_v2.json',
@@ -43,37 +43,18 @@ angular.module('starter.controllers', [])
 
 .controller('AppCtrl', ['$scope', '$http', '$timeout', '$ionicLoading', '$ionicPopover', 'appFactory', 'appFallBack', function($scope, $http, $timeout, $ionicLoading, $ionicPopover, appFactory, appFallBack) {
     
-    /*$ionicLoading.show({
+    $ionicLoading.show({
     template: '<p>PFA Ireland is loading</p><i class="icon ion-loading-c"></i>',
     showBackdrop: true
-    });*/
+    });
     
     console.log('App Controller');
     
     
-    appFactory.success(function(data, status, headers, config){
-        console.log('Remote');
-       
-        $scope.section = data.app.section;
         
-        $scope.sections = [];
-        
-        angular.forEach($scope.section, function(value, key, i){
+        appFactory.success(function(data, status, headers, config){
             
-            var key = value['id'];
-            
-            this[key] = value['content'];
-               
-        }, $scope.sections);
-        
-        /*$ionicLoading.hide();*/
-        
-        })
-        
-        .error(function(){
-        
-                appFallBack.success(function(data, status, headers, config){
-                console.log('Local');
+            console.log('Remote');
 
                 $scope.section = data.app.section;
 
@@ -87,11 +68,36 @@ angular.module('starter.controllers', [])
 
                 }, $scope.sections);
 
-                /*$ionicLoading.hide();*/
+                $ionicLoading.hide();
+            
+                
+            }).error(function(){
+            
+            appFallBack.success(function(data, status, headers, config){
+                console.log('Local');
+
+                $scope.section = data.app.section;
+
+                $scope.sections = [];
+
+                angular.forEach($scope.section, function(value, key, i){
+
+                    var key = value['id'];
+
+                    this[key] = value['content'];
+
+                }, $scope.sections);
+                    
+                    
+
+                $ionicLoading.hide();
 
                 })
+                
             }
+                
         );
+   
     
     $scope.setItem = function(item){
         $scope.$parent.item = item;
