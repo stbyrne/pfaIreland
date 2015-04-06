@@ -8,14 +8,6 @@ angular.module('starter.controllers', [])
     });
 })
 
-.factory('appFallBack', function($http) {
-    
-    return $http({
-        url: 'content/content.json',
-        method: 'GET'
-    });
-})
-
 .factory('newsFactory', function($http) {
     
  return{
@@ -41,7 +33,7 @@ angular.module('starter.controllers', [])
  }
 })
 
-.controller('AppCtrl', ['$scope', '$http', '$timeout', '$ionicLoading', '$ionicPopover', 'appFactory', 'appFallBack', function($scope, $http, $timeout, $ionicLoading, $ionicPopover, appFactory, appFallBack) {
+.controller('AppCtrl', ['$scope', '$http', '$timeout', '$ionicLoading', '$ionicPopover', 'appFactory', function($scope, $http, $timeout, $ionicLoading, $ionicPopover, appFactory) {
     
     $ionicLoading.show({
     template: '<p>PFA Ireland is loading</p><i class="icon ion-loading-c"></i>',
@@ -52,11 +44,11 @@ angular.module('starter.controllers', [])
     
     
         
-        appFactory.success(function(data, status, headers, config){
+        appFactory.then(function(data, status, headers, config){
             
             console.log('Remote');
 
-                $scope.section = data.app.section;
+                $scope.section = data.data.app.section;
 
                 $scope.sections = [];
 
@@ -71,32 +63,30 @@ angular.module('starter.controllers', [])
                 $ionicLoading.hide();
             
                 
-            }).error(function(){
+            }, function(){
             
-            appFallBack.success(function(data, status, headers, config){
-                console.log('Local');
+                $http.get('content/content.json').success(function(data, status, headers, config){
+                    console.log('Local');
 
-                $scope.section = data.app.section;
+                    $scope.section = data.app.section;
 
-                $scope.sections = [];
+                    $scope.sections = [];
 
-                angular.forEach($scope.section, function(value, key, i){
+                    angular.forEach($scope.section, function(value, key, i){
 
-                    var key = value['id'];
+                        var key = value['id'];
 
-                    this[key] = value['content'];
+                        this[key] = value['content'];
 
-                }, $scope.sections);
-                    
-                    
+                    }, $scope.sections);
 
-                $ionicLoading.hide();
+
+
+                    $ionicLoading.hide();
 
                 })
                 
-            }
-                
-        );
+            });
    
     
     $scope.setItem = function(item){
