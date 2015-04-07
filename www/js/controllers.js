@@ -78,6 +78,8 @@ angular.module('starter.controllers', [])
                     console.log('Loading Local App Json');
                     
                     $ionicLoading.hide();
+                    
+                    alert('Loading Local App Json');
 
                     $scope.section = data.data.app.section;
 
@@ -93,7 +95,7 @@ angular.module('starter.controllers', [])
 
 
                 }, function(){
-                    console.log('Error Loading Local App Json');   
+                    alert('Error Loading Local App Json');   
                 })
                 
             });
