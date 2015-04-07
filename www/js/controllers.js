@@ -44,7 +44,7 @@ angular.module('starter.controllers', [])
     
     
         
-        appFactory.then(function(data, status, headers, config){
+        $http.get('https://googledrive.com/host/0B0778NZ3pAKKcHYxWjBiLTc5UjA/content_v2.json').then(function(data, status, headers, config){
             
                 $scope.status = data.status;
                 console.log('Request Status: ', $scope.status);
@@ -64,10 +64,7 @@ angular.module('starter.controllers', [])
                     this[key] = value['content'];
 
                 }, $scope.sections);
-
-                
             
-                
             }, function(data, status){
                 
                 $scope.status = data.status;
