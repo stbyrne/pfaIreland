@@ -97,6 +97,7 @@ angular.module('starter.controllers', [])
                 
             });
    
+   
     
     $scope.setItem = function(item){
         $scope.$parent.item = item;
