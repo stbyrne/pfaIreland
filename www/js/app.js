@@ -19,18 +19,20 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives']
   });
 })
 
-.config(function($stateProvider, $urlRouterProvider) {
+.config(function($httpProvider, $stateProvider, $urlRouterProvider) {
     
-  $stateProvider
+    delete $httpProvider.defaults.headers.common['X-Requested-With'];
+    
+    $stateProvider
 
-  .state('app', {
+    .state('app', {
     url: "/app",
     abstract: true,
     templateUrl: "templates/menu.html"/*,
     controller: 'AppCtrl'*/
-  })
-  
-  .state('app.main', {
+    })
+
+    .state('app.main', {
     url: "/main",
     views: {
       'menuContent': {
@@ -38,9 +40,9 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives']
         controller: 'AppCtrl'
       }
     }
-  })
-  
-  .state('app.contact', {
+    })
+
+    .state('app.contact', {
     url: "/contact",
     views: {
       'menuContent': {
@@ -48,9 +50,9 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives']
         controller: 'AppCtrl'
       }
     }
-  })
-  
-  .state('app.resources', {
+    })
+
+    .state('app.resources', {
     url: "/resources",
     views: {
       'menuContent': {
@@ -58,10 +60,10 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives']
         controller: 'AppCtrl'
       }
     }
-  })
-  
-  .state('app.transfer', {
-    
+    })
+
+    .state('app.transfer', {
+
     url: "/transfer",
     views: {
       'menuContent': {
@@ -69,9 +71,9 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives']
         controller: "ListCtrl"
       }
     }
-  })
-  
-  .state('app.news', {
+    })
+
+    .state('app.news', {
     url: "/news",
     views: {
       'menuContent': {
@@ -79,9 +81,9 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives']
         controller: 'NewsCtrl'
       }
     }
-  })
-  
-   .state('app.article', {
+    })
+
+    .state('app.article', {
     url: "/news/article",
     views: {
       'menuContent': {
@@ -89,9 +91,9 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives']
         controller: 'NewsCtrl'
       }
     }
-  })
-  
-  .state('app.agency', {
+    })
+
+    .state('app.agency', {
     url: "/agency",
     views: {
       'menuContent': {
@@ -99,9 +101,9 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives']
         controller: 'AppCtrl'
       }
     }
-  })
-  
-   .state('app.membership', {
+    })
+
+    .state('app.membership', {
     url: "/membership",
     views: {
       'menuContent': {
@@ -109,9 +111,9 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives']
         controller: 'AppCtrl'
       }
     }
-  })
-  
-   .state('app.coaching', {
+    })
+
+    .state('app.coaching', {
     url: "/coaching",
     views: {
       'menuContent': {
@@ -119,9 +121,9 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives']
         controller: 'AppCtrl'
       }
     }
-  })
-  
-   .state('app.career', {
+    })
+
+    .state('app.career', {
     url: "/career",
     views: {
       'menuContent': {
@@ -129,9 +131,9 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives']
         controller: 'AppCtrl'
       }
     }
-  })
-  
-   .state('app.antidoping', {
+    })
+
+    .state('app.antidoping', {
     url: "/antidoping",
     views: {
       'menuContent': {
@@ -139,9 +141,9 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives']
         controller: 'AppCtrl'
       }
     }
-  })
-  
-  .state('app.tax', {
+    })
+
+    .state('app.tax', {
     url: "/tax",
     views: {
       'menuContent': {
@@ -149,9 +151,9 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives']
         controller: 'AppCtrl'
       }
     }
-  })
-  
-  .state('app.window', {
+    })
+
+    .state('app.window', {
     url: "/window",
     views: {
       'menuContent': {
@@ -159,9 +161,9 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives']
         controller: 'AppCtrl'
       }
     }
-  })
-  
-  .state('app.betting', {
+    })
+
+    .state('app.betting', {
     url: "/betting",
     views: {
       'menuContent': {
@@ -169,9 +171,9 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives']
         controller: 'AppCtrl'
       }
     }
-  })
-  
-  .state('app.map', {
+    })
+
+    .state('app.map', {
     url: "/map",
     views: {
       'menuContent': {
@@ -179,7 +181,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives']
         controller: 'MapCtrl'
       }
     }
-  });
-  // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('app/main');
+    });
+    // if none of the above states are matched, use this as the fallback
+    $urlRouterProvider.otherwise('app/main');
 });
