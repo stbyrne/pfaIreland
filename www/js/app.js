@@ -1,24 +1,3 @@
-var interceptor = function ($q, $location) {
-    return {
-        request: function (config) {
-            /*console.log(config);*/
-            return config;
-        },
-
-        response: function (result) {
-            console.log('Response from Server');
-            
-            return result;
-        },
-
-        responseError: function (rejection) {
-            console.log('Failed with', rejection.status, 'status');
-
-            return $q.reject(rejection);
-        }
-    }
-};
-
 // Ionic Starter App
 
 // angular.module is a global place for creating, registering and retrieving Angular modules
@@ -31,7 +10,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives']
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
-    navigator.splashscreen.hide();
+    /*navigator.splashscreen.hide();*/
       
     if (window.cordova && window.cordova.plugins.Keyboard) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
@@ -40,17 +19,15 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives']
   });
 })
 
-.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
-    
-    $httpProvider.interceptors.push(interceptor);
+.config(function($stateProvider, $urlRouterProvider) {
     
   $stateProvider
 
   .state('app', {
     url: "/app",
     abstract: true,
-    templateUrl: "templates/menu.html",
-    controller: 'AppCtrl'
+    templateUrl: "templates/menu.html"/*,
+    controller: 'AppCtrl'*/
   })
   
   .state('app.main', {

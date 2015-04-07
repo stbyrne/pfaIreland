@@ -1,6 +1,6 @@
 angular.module('starter.controllers', [])
 
-.factory('appFactory', function($http, $q) {
+.factory('appFactory', function($http) {
     
     return $http({
         url: 'https://googledrive.com/host/0B0778NZ3pAKKcHYxWjBiLTc5UjA/content_v2.json',
@@ -46,7 +46,12 @@ angular.module('starter.controllers', [])
         
         appFactory.then(function(data, status, headers, config){
             
-            console.log('Remote');
+                $scope.status = data.status;
+                console.log('Request Status: ', $scope.status);
+            
+                console.log('Loading Remote App Json');
+                                
+                $ionicLoading.hide();
 
                 $scope.section = data.data.app.section;
 
@@ -60,15 +65,21 @@ angular.module('starter.controllers', [])
 
                 }, $scope.sections);
 
-                $ionicLoading.hide();
+                
             
                 
-            }, function(){
+            }, function(data, status){
             
-                $http.get('content/content.json').success(function(data, status, headers, config){
-                    console.log('Local');
+                $scope.status = data.status;
+                console.log('Error Status: ', $scope.status);
+            
+                $http.get('content/content.json').then(function(data){
+                    
+                    console.log('Loading Local App Json');
+                    
+                    $ionicLoading.hide();
 
-                    $scope.section = data.app.section;
+                    $scope.section = data.data.app.section;
 
                     $scope.sections = [];
 
@@ -81,9 +92,8 @@ angular.module('starter.controllers', [])
                     }, $scope.sections);
 
 
-
-                    $ionicLoading.hide();
-
+                }, function(){
+                    console.log('Error Loading Local App Json');   
                 })
                 
             });
