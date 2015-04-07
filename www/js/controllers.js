@@ -49,7 +49,7 @@ angular.module('starter.controllers', [])
                 $scope.status = data.status;
                 console.log('Request Status: ', $scope.status);
             
-                console.log('Loading Remote App Json');
+                alert('Loading Remote App Json');
                                 
                 $ionicLoading.hide();
 
@@ -69,9 +69,9 @@ angular.module('starter.controllers', [])
             
                 
             }, function(data, status){
-            
+                
                 $scope.status = data.status;
-                console.log('Error Status: ', $scope.status);
+                alert('Error Status: ', $scope.status);
             
                 $http.get('content/content.json').then(function(data){
                     
