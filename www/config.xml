@@ -98,7 +98,7 @@
     
     <!--Access all domains-->
     
-    <access origin="*" subdomains="true" />
+    <access origin="https://googledrive.*" subdomains="true" />
     
     
 
