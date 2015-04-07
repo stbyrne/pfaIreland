@@ -4,7 +4,10 @@ angular.module('starter.controllers', [])
     
     return $http({
         url: 'https://googledrive.com/host/0B0778NZ3pAKKcHYxWjBiLTc5UjA/content_v2.json',
-        method: 'GET'
+        method: 'GET',
+        headers: {
+            'Allow-Control-Request-Headers': 'accept, origin'  
+        }
     });
 })
 
@@ -44,7 +47,7 @@ angular.module('starter.controllers', [])
     
     
         
-        $http.get('https://googledrive.com/host/0B0778NZ3pAKKcHYxWjBiLTc5UjA/content_v2.json').then(function(data, status, headers, config){
+        appFactory.then(function(data, status, headers, config){
             
                 $scope.status = data.status;
                 console.log('Request Status: ', $scope.status);
