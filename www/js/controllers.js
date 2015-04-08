@@ -56,9 +56,7 @@ angular.module('starter.controllers', [])
  }
 })
 
-.controller('AppCtrl', ['$scope', '$http', '$timeout', '$ionicLoading', '$ionicPopover', 'appFactory', '$cordovaStatusBar', function($scope, $http, $timeout, $ionicLoading, $ionicPopover, appFactory, $cordovaStatusBar) {
-    
-    $cordovaStatusBar.style(2);
+.controller('AppCtrl', ['$scope', '$http', '$timeout', '$ionicLoading', '$ionicPopover', 'appFactory', function($scope, $http, $timeout, $ionicLoading, $ionicPopover, appFactory) {
     
     $ionicLoading.show({
     template: '<p>PFA Ireland is loading</p><i class="icon ion-loading-c"></i>',
@@ -178,9 +176,7 @@ angular.module('starter.controllers', [])
     
 }])
 
-.controller('NewsCtrl', ['$scope', 'newsFactory', '$ionicLoading', '$ionicSlideBoxDelegate', '$timeout', '$cordovaStatusBar', function($scope, newsFactory, $ionicLoading , $ionicSlideBoxDelegate, $timeout, $cordovaStatusBar) {
-    
-    $cordovaStatusBar.style(1);
+.controller('NewsCtrl', ['$scope', 'newsFactory', '$ionicLoading', '$ionicSlideBoxDelegate', '$timeout', function($scope, newsFactory, $ionicLoading , $ionicSlideBoxDelegate, $timeout) {
    
     $scope.news = [];
     $scope.article = [];
@@ -245,9 +241,7 @@ angular.module('starter.controllers', [])
     
 }])
 
-.controller('ListCtrl', ['$scope', 'listFactory', '$ionicLoading', '$cordovaStatusBar', function($scope, listFactory, $ionicLoading, $cordovaStatusBar) {
-    
-    $cordovaStatusBar.style(2);
+.controller('ListCtrl', ['$scope', 'listFactory', '$ionicLoading', function($scope, listFactory, $ionicLoading) {
    
     $scope.list = [];
     
@@ -281,6 +275,7 @@ angular.module('starter.controllers', [])
                 
             this.push([$firstName + ' ' + $lastName, $preClubs, value["Position"], $dobPlayer]);
             
+            /*console.log($scope.players);*/
            
         }, $scope.players)
         
@@ -290,10 +285,7 @@ angular.module('starter.controllers', [])
     
 }])
 
-.controller('MapCtrl', function($scope, $ionicLoading, $cordovaStatusBar) {
-    
-    $cordovaStatusBar.style(1);
-    
+.controller('MapCtrl', function($scope, $ionicLoading) {
   $scope.mapCreated = function(map) {
     $scope.map = map;
   };
