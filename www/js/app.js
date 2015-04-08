@@ -12,7 +12,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives',
     // for form inputs)
         navigator.splashscreen.hide();
         $cordovaStatusbar.overlaysWebView(true);
-        $cordovaStatusBar.style(2);
+        
         
       
     if (window.cordova && window.cordova.plugins.Keyboard) {
