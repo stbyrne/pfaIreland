@@ -50,14 +50,15 @@ angular.module('starter.controllers', [])
     getList : function() {
         return $http({
             url: 'http://pfai.ie/mobile/transferliststream',
-            /*url: 'content/getList.json',*/
             method: 'GET'
         })
     }
  }
 })
 
-.controller('AppCtrl', ['$scope', '$http', '$timeout', '$ionicLoading', '$ionicPopover', 'appFactory', function($scope, $http, $timeout, $ionicLoading, $ionicPopover, appFactory) {
+.controller('AppCtrl', ['$scope', '$http', '$timeout', '$ionicLoading', '$ionicPopover', 'appFactory', '$cordovaStatusBar', function($scope, $http, $timeout, $ionicLoading, $ionicPopover, appFactory, $cordovaStatusBar) {
+    
+    $cordovaStatusBar.style(2);
     
     $ionicLoading.show({
     template: '<p>PFA Ireland is loading</p><i class="icon ion-loading-c"></i>',
@@ -177,7 +178,9 @@ angular.module('starter.controllers', [])
     
 }])
 
-.controller('NewsCtrl', ['$scope', 'newsFactory', '$ionicLoading', '$ionicSlideBoxDelegate', '$timeout', function($scope, newsFactory, $ionicLoading , $ionicSlideBoxDelegate, $timeout) {
+.controller('NewsCtrl', ['$scope', 'newsFactory', '$ionicLoading', '$ionicSlideBoxDelegate', '$timeout', '$cordovaStatusBar', function($scope, newsFactory, $ionicLoading , $ionicSlideBoxDelegate, $timeout, $cordovaStatusBar) {
+    
+    $cordovaStatusBar.style(1);
    
     $scope.news = [];
     $scope.article = [];
@@ -242,7 +245,9 @@ angular.module('starter.controllers', [])
     
 }])
 
-.controller('ListCtrl', ['$scope', 'listFactory', '$ionicLoading', function($scope, listFactory, $ionicLoading) {
+.controller('ListCtrl', ['$scope', 'listFactory', '$ionicLoading', '$cordovaStatusBar', function($scope, listFactory, $ionicLoading, $cordovaStatusBar) {
+    
+    $cordovaStatusBar.style(2);
    
     $scope.list = [];
     
@@ -276,21 +281,19 @@ angular.module('starter.controllers', [])
                 
             this.push([$firstName + ' ' + $lastName, $preClubs, value["Position"], $dobPlayer]);
             
-            /*console.log($scope.players);*/
            
         }, $scope.players)
         
-        
-        /*angular.forEach($scope.list, function(i){
-             console.log(Object.keys(i));  
-        })*/
         $ionicLoading.hide();
     });
     
     
 }])
 
-.controller('MapCtrl', function($scope, $ionicLoading) {
+.controller('MapCtrl', function($scope, $ionicLoading, $cordovaStatusBar) {
+    
+    $cordovaStatusBar.style(1);
+    
   $scope.mapCreated = function(map) {
     $scope.map = map;
   };

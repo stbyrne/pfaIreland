@@ -4,13 +4,16 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives'])
+angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives', 'ngCordova'])
 
-.run(function($ionicPlatform) {
+.run(function($ionicPlatform, $cordovaStatusbar) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
-    navigator.splashscreen.hide();
+        navigator.splashscreen.hide();
+        $cordovaStatusbar.overlaysWebView(true);
+        $cordovaStatusBar.style(2);
+        
       
     if (window.cordova && window.cordova.plugins.Keyboard) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
