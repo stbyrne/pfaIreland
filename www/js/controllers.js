@@ -2,13 +2,8 @@ angular.module('starter.controllers', [])
 
 .factory('appFactory', function($http) {
     
-    /*return $http({
-        url: 'https://googledrive.com/host/0B0778NZ3pAKKcHYxWjBiLTc5UjA/content_v2.json',
-        method: 'GET'
-    });*/
-    
     return $.ajax({
-        /*url: 'http://www.stuartbyrne.com/pfai/content.json',*/
+        
         url: "https://googledrive.com/host/0B0778NZ3pAKKcHYxWjBiLTc5UjA/content_v2.json",
         dataType: 'json',
         cache: false,
@@ -16,7 +11,7 @@ angular.module('starter.controllers', [])
         success: function(data) {
             return data;
             
-        },
+        }/*,
         error: function() {
             
             $.ajax({
@@ -33,7 +28,7 @@ angular.module('starter.controllers', [])
                 }
                 
             });
-        }   
+        }*/   
     });
 })
 
@@ -99,7 +94,7 @@ angular.module('starter.controllers', [])
                     
                     $ionicLoading.hide();
                     
-                    console.log('Loading Local App Json');
+                    alert('We had a problem reaching the server. Content may be Limited at the moment.');
 
                     $scope.section = data.data.app.section;
 
