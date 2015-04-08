@@ -48,7 +48,9 @@ angular.module('starter.controllers', [])
         appFactory.then(function(data, status, headers, config){
             
                 $scope.status = data.status;
+                $scope.config = data.config;
                 console.log('Request Status: ', $scope.status);
+                console.log('Request Config: ', $scope.config);
             
                 console.log('Loading Remote App Json');
                                 
@@ -66,10 +68,17 @@ angular.module('starter.controllers', [])
 
                 }, $scope.sections);
             
-            }, function(data, status){
+            }, function(data, status, config){
+            
+                $scope.status = data.status;
+                $scope.config = data.config;
+                console.log('Request Status: ', $scope.status);
+                console.log('Request Config: ', $scope.config);
                 
                 $scope.status = data.status;
                 console.log('Error Status: ', $scope.status);
+            
+            if($scope.status==0){
             
                 $http.get('content/content.json').then(function(data){
                     
@@ -94,6 +103,7 @@ angular.module('starter.controllers', [])
                 }, function(){
                     console.log('Error Loading Local App Json');   
                 })
+            }
                 
             });
    
