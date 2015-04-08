@@ -135,7 +135,11 @@ resource-list .list .item-divider h2, resource-list .list .item-divider p{
     -o-background-size: cover; /* pour Opera */
     background-size: cover; /* version standardisée */
 }
-
+.bar{
+    border-bottom: none;
+    border-width: 0;
+    background-size: 100% 0;
+}
 
 .bar-light{
     background-color: transparent;
