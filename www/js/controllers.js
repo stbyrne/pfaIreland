@@ -2,12 +2,38 @@ angular.module('starter.controllers', [])
 
 .factory('appFactory', function($http) {
     
-    return $http({
+    /*return $http({
         url: 'https://googledrive.com/host/0B0778NZ3pAKKcHYxWjBiLTc5UjA/content_v2.json',
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json, text/plain, */*'  
-        }
+        method: 'GET'
+    });*/
+    
+    return $.ajax({
+        /*url: 'http://www.stuartbyrne.com/pfai/content.json',*/
+        url: "https://googledrive.com/host/0B0778NZ3pAKKcHYxWjBiLTc5UjA/content_v2.json",
+        dataType: 'json',
+        cache: false,
+        timeout: 10000,
+        success: function(data) {
+            return data;
+            
+        },
+        error: function() {
+            
+            $.ajax({
+       
+                url: 'content/content.json',
+                dataType: 'json',
+                cache: false,
+                success: function(data) {
+                    return data;
+                    
+                },
+                error: function() {
+                    console('Error loading. Please re-open the app.');
+                }
+                
+            });
+        }   
     });
 })
 
@@ -45,18 +71,14 @@ angular.module('starter.controllers', [])
     
     console.log('App Controller');
         
-        appFactory.then(function(data, status, headers, config){
-            
-                $scope.status = data.status;
-                $scope.config = data.config;
-                console.log('Request Status: ', $scope.status);
-                console.log('Request Config: ', $scope.config);
+        appFactory.then(function(data){
             
                 console.log('Loading Remote App Json');
+                console.log(data);
                                 
                 $ionicLoading.hide();
 
-                $scope.section = data.data.app.section;
+                $scope.section = data.app.section;
 
                 $scope.sections = [];
 
@@ -67,21 +89,13 @@ angular.module('starter.controllers', [])
                     this[key] = value['content'];
 
                 }, $scope.sections);
+                    
+               
             
-            }, function(data, status, config){
+            }, function(data){
             
-                $scope.status = data.status;
-                $scope.config = data.config;
-                console.log('Request Status: ', $scope.status);
-                console.log('Request Config: ', $scope.config);
-                
-                $scope.status = data.status;
-                console.log('Error Status: ', $scope.status);
-            
-            if($scope.status==0){
             
                 $http.get('content/content.json').then(function(data){
-                    
                     
                     $ionicLoading.hide();
                     
@@ -100,10 +114,8 @@ angular.module('starter.controllers', [])
                     }, $scope.sections);
 
 
-                }, function(){
-                    console.log('Error Loading Local App Json');   
                 })
-            }
+           
                 
             });
    
