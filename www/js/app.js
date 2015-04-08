@@ -11,7 +11,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives']
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
         navigator.splashscreen.hide();
-        Statusbar.styleColor('#b5b5b5');
         
         
       
