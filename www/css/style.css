@@ -10,8 +10,8 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('../img/main/home_720.png');
-    /*background-image: url('../img/main/hmh.png');*/
+    /*background-image: url('../img/main/home_720.png');*/
+    background-image: url('../img/main/hmh.png');
     -webkit-background-size: cover; 
     -moz-background-size: cover; 
     -o-background-size: cover; 
@@ -194,8 +194,8 @@ i.icon.ion-loading-c {
 .list-title{
     font-size: 1.2em;
     font-weight: 400;
-    background-color: rgb(245,245,245);
-    color: rgb(0,170,50); 
+    background-color: rgb(0,170,50);
+    color: rgb(255, 255, 255); 
         
 }
 
@@ -243,7 +243,18 @@ i.icon.ion-loading-c {
     font-weight: 300;
     
 }
-/*Search Bar*/
+/*News Search Bar*/
+
+.news-search, .transfer-search{
+    background-color: #f4f4f4;  
+}
+h4.news-date{
+    font-size: 12px;
+    background-color: rgb(0,170,50);
+    color: rgb(255, 255, 255);
+    /*position: absolute;
+    bottom: 10px;*/ 
+}
 
 button.icon.button-icon.ion-ios7-close-outline {
     position: absolute;

@@ -14,7 +14,7 @@
     </ion-nav-bar>
 
     <ion-content>
-        <div class="item item-input">
+        <div class="item item-input news-search">
                 <i class="icon ion-search placeholder-icon"></i>
                 <input type="search" placeholder="Search News" ng-model="searchNews">
                 <button ng-if="searchNews.length"
@@ -24,10 +24,10 @@
         <ion>
             <ion-item ng-repeat="detail in articleList | filter:searchNews" href="#/app/news/article" class="item item-thumbnail-left item-icon-right" ng-init="num=$index" ng-click="setIndex(num)">
         <img src={{detail[0]}}>
+                <h4 class="news-date">{{detail[3]}}</h4>
         <h2>{{detail[1]}}</h2>
         <p>{{detail[2]}}</p>
-        <span>{{detail[3]}}</span>
-          <i class="icon ion-ios7-arrow-right"></i>
+        <i class="icon ion-ios7-arrow-right"></i>
       </ion-item>
         </ion>
     </ion-content>
