@@ -23,10 +23,10 @@
             </div>
         <ion>
             <ion-item ng-repeat="detail in articleList | filter:searchNews" href="#/app/news/article" class="item item-thumbnail-left item-icon-right" ng-init="num=$index" ng-click="setIndex(num)">
-        <img src={{detail[0]}}>
-                <h4 class="news-date">{{detail[3]}}</h4>
-        <h2>{{detail[1]}}</h2>
-        <p>{{detail[2]}}</p>
+        <img src={{detail.thumb}}>
+        <h4 class="news-date">{{detail.date}}</h4>
+        <h2 class="underline">{{detail.title}}</h2>
+        <p>{{detail.intro}}</p>
         <i class="icon ion-ios7-arrow-right"></i>
       </ion-item>
         </ion>

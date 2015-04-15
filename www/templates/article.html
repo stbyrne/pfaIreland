@@ -10,19 +10,18 @@
             <ion-slide ng-repeat="article in articles" active="true" scrollbar-y="false">
                 <ion-content class="article">
                     
-                    <h4>{{article[0]}}</h4>
+                    <h4 class="news-title">{{article.title}}</h4>
                     
                     <div class="list card">
 
-
                         <div class="item item-image">
-                            <img src="{{article[1]}}">
+                            <img src="{{article.image}}">
                         </div>
 
                     </div>
                     
-                    <span>{{article[2]}}</span>
-                    <div ng-bind-html="article[3]"></div>
+                    <span class="news-date">{{article.date}}</span>
+                    <p ng-bind-html="article.text"></p>
                 </ion-content>
         </ion-slide>
     </ion-slide-box>

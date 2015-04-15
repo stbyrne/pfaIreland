@@ -10,25 +10,7 @@ angular.module('starter.controllers', [])
         timeout: 5000,
         success: function(data) {
             return data;
-            
-        }/*,
-        error: function() {
-            
-            $.ajax({
-       
-                url: 'content/content.json',
-                dataType: 'json',
-                cache: false,
-                success: function(data) {
-                    return data;
-                    
-                },
-                error: function() {
-                    console('Error loading. Please re-open the app.');
-                }
-                
-            });
-        }*/   
+        }   
     });
 })
 
@@ -91,10 +73,10 @@ angular.module('starter.controllers', [])
             
                 $http.get('content/content.json').then(function(data){
                     
+                    alert('Cant quite reach the server at this time. Content will be Limited for the moment.');
+                    
                     $ionicLoading.hide();
                     
-                    alert('We had a problem reaching the server. Content may be Limited at the moment.');
-
                     $scope.section = data.data.app.section;
 
                     $scope.sections = [];
@@ -221,9 +203,9 @@ angular.module('starter.controllers', [])
                 
             });
             
-            $scope.articleList.push([$articleThumb, $articleTitle, $articleIntro,$articleDate]);
+            $scope.articleList.push({thumb:$articleThumb, title:$articleTitle, intro:$articleIntro,date:$articleDate});
                 
-            this.push([$articleTitle, $articleImage, $articleDate, $articleBody]);
+            this.push({title:$articleTitle, image:$articleImage, date:$articleDate, text:$articleBody});
             
         }, $scope.articles)
         
@@ -307,6 +289,7 @@ angular.module('starter.controllers', [])
         console.log('Got pos', pos);
         var loc = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
         $scope.map.setCenter(loc);
+        $scope.map.setZoom(10);
         
         var pfaiOffices = 'img/loc.svg';
         
@@ -326,24 +309,14 @@ angular.module('starter.controllers', [])
         });
         
         google.maps.event.addListener(location, 'click', function() {
-  infowindow.open($scope.map,location);
-});
+            infowindow.open($scope.map,location);
+        });
         $ionicLoading.hide();
         
     }, function (error) {
-      alert('Unable to get location: ' + error.message);
-    });
-  };
-    /////////
-    
-    /*google.maps.event.addListener(map, 'click', function(event) {
-        marker = new google.maps.Marker({
-            position: event.latLng,
-            map: map
+            alert('Unable to get location: ' + error.message);
         });
-    });
-    */
-    //////////
+  };
     
     function setCenter(latlng) {
         var myOptions = {
@@ -354,26 +327,23 @@ angular.module('starter.controllers', [])
         // Add custom image to map
         var pfaiOffices = 'images/loc.svg';
         /*var mark = 'images/mark.svg';*/
-        var marker = new google.maps.Marker({
+        var marker;
+        marker.setMap(null);
+        marker = new google.maps.Marker({
             position: latlng,
             map: map,
             /*icon: mark,*/
             title: "You are here!"
         });
-        var marker2 = new google.maps.Marker({
+        var marker2;
+        marker2.setMap(null);
+        marker2 = new google.maps.Marker({
             position: defaultLatLng,
             map: map,
             icon: pfaiOffices,
             title: "PFA Ireland Offices"
         });
         
-        google.maps.event.addListener(marker, 'click', function() {
-            alert('You are here');
-        });
-        
-        google.maps.event.addListener(marker2, 'click', function() {
-            alert('PFA Ireland Offices');
-        });
     }
     
     /////////////////
