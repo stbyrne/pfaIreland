@@ -254,11 +254,9 @@ i.icon.ion-loading-c {
 }
 
 h4.news-date, span.news-date{
-    font-size: 8px;
-    background-color: rgb(0,170,50);
-    color: rgb(255, 255, 255);
+    font-size: 12px;
+    color: rgb(0,170,50);
     font-weight: 300;
-    width: 60%;
     /*position: absolute;
     bottom: 10px;*/ 
 }
