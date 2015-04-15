@@ -7,7 +7,7 @@ angular.module('starter.controllers', [])
         url: "https://googledrive.com/host/0B0778NZ3pAKKcHYxWjBiLTc5UjA/content_v2.json",
         dataType: 'json',
         cache: false,
-        timeout: 10000,
+        timeout: 5000,
         success: function(data) {
             return data;
             
