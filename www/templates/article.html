@@ -1,11 +1,11 @@
 <ion-view>
-<ion-content has-bouncing="false">
-        <ion-nav-title>Article</ion-nav-title>
-        <ion-nav-bar class="bar-dark">
-            <ion-nav-back-button class="button-icon button-clear ion-ios7-arrow-left">
-            </ion-nav-back-button>
-        </ion-nav-bar>
-            
+    <ion-content has-bouncing="false">
+            <ion-nav-title>Article</ion-nav-title>
+            <ion-nav-bar class="bar-dark">
+                <ion-nav-back-button class="button-icon button-clear ion-ios7-arrow-left">
+                </ion-nav-back-button>
+            </ion-nav-bar>
+    </ion-content>
     <ion-slide-box show-pager="false" on-slide-changed="nextSlide()" active-slide="myNewsArticle">
             <ion-slide ng-repeat="article in articles" active="true" scrollbar-y="false">
                 <ion-content class="article">
@@ -25,7 +25,6 @@
                 </ion-content>
         </ion-slide>
     </ion-slide-box>
-</ion-content>
 </ion-view>
 
 
