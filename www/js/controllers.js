@@ -16,26 +16,48 @@ angular.module('starter.controllers', [])
 
 .factory('newsFactory', function($http) {
     
- return{
-    getNews : function() {
-        return $http({
-            url: 'http://pfai.ie/mobile/pfainews',
-            method: 'GET'
-        })
-    }
- }
+     /*return{
+        getNews : function() {
+            return $http({
+                url: 'http://pfai.ie/mobile/pfainews',
+                method: 'GET'
+            })
+        }
+     }*/
+     
+     return $.ajax({
+        
+        url: "http://pfai.ie/mobile/pfainews",
+        dataType: 'json',
+        cache: true,
+        timeout: 5000,
+        success: function(data) {
+            return data;
+        }   
+    });
 })
 
 .factory('listFactory', function($http) {
     
- return{
+ /*return{
     getList : function() {
         return $http({
             url: 'http://pfai.ie/mobile/transferliststream',
             method: 'GET'
         })
     }
- }
+ }*/
+ 
+ return $.ajax({
+        
+        url: "http://pfai.ie/mobile/transferliststream",
+        dataType: 'json',
+        cache: true,
+        timeout: 5000,
+        success: function(data) {
+            return data;
+        }   
+    });
 })
 
 .controller('AppCtrl', ['$scope', '$http', '$timeout', '$ionicLoading', '$ionicPopover', 'appFactory', function($scope, $http, $timeout, $ionicLoading, $ionicPopover, appFactory) {
@@ -176,7 +198,7 @@ angular.module('starter.controllers', [])
     showBackdrop: true
     });
     
-    newsFactory.getNews().success(function(data){
+    newsFactory.then(function(data){
         
         console.log(data);
         
@@ -194,6 +216,8 @@ angular.module('starter.controllers', [])
                 $articleTitle = value["node_title"],
                 $articleIntro = $($getBody).html().substr(0,80) + ' ...' + 'read more',
                 $articleThumb = $(value["thumbnail"]).attr('src');
+            
+            console.log($articleIntro);
             
             $.each($($articleBody).find('img'), function(){
                 if($(this).attr('src').slice(0,18)!='http://www.pfai.ie'){
@@ -217,8 +241,15 @@ angular.module('starter.controllers', [])
         $timeout(function(){
           $ionicSlideBoxDelegate.update();
           /*$ionicSlideBoxDelegate.next();*/
-      }, 500)
-    });
+        }, 500)
+        }, function(){
+            
+            
+                    alert('Oops cant get the latest news at the moment.');
+                    $ionicLoading.hide();
+           
+                
+                });
     
 }])
 
@@ -233,7 +264,7 @@ angular.module('starter.controllers', [])
     });
     
     
-    listFactory.getList().success(function(data){
+    listFactory.then(function(data){
         
         $scope.list = data;
         $scope.players = [];
@@ -261,6 +292,11 @@ angular.module('starter.controllers', [])
         }, $scope.players)
         
         $ionicLoading.hide();
+    }, function(){
+        
+            alert('Oops cant get the latest transfer list at the moment.');
+            $ionicLoading.hide();
+           
     });
     
     
