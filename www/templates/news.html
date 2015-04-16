@@ -26,7 +26,7 @@
         <img src={{detail.thumb}}>
         <h4 class="news-date">{{detail.date}}</h4>
         <h2 class="underline">{{detail.title}}</h2>
-        <p>{{detail.intro}}</p>
+        <p ng-bind-html="detail.intro"></p>
         <i class="icon ion-ios7-arrow-right"></i>
       </ion-item>
         </ion>
