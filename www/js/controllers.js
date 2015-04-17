@@ -227,25 +227,24 @@ angular.module('starter.controllers', [])
                 
             });
             
-            $scope.articleList.push({thumb:$articleThumb, title:$articleTitle, intro:$articleIntro,date:$articleDate});
-                
-            this.push({title:$articleTitle, image:$articleImage, date:$articleDate, text:$articleBody});
+            this.push({thumb:$articleThumb, title:$articleTitle, intro:$articleIntro, image:$articleImage, date:$articleDate, text:$articleBody});
             
         }, $scope.articles)
         
-        console.log($scope.articles);
-        console.log($scope.articleList);
+        var newsObj = $scope.articles;
+        
+        localStorage.setItem('newsStorage', JSON.stringify(newsObj));
         
         $ionicLoading.hide();
         
         $timeout(function(){
           $ionicSlideBoxDelegate.update();
-          /*$ionicSlideBoxDelegate.next();*/
         }, 500)
         }, function(){
             
             
-                    alert('Oops cant get the latest news at the moment.');
+                    alert('Oops cant get the latest news at the moment. You can still view saved news stories.');
+                    $scope.articles = JSON.parse(localStorage.getItem('newsStorage'));
                     $ionicLoading.hide();
            
                 
