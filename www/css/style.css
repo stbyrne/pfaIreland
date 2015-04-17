@@ -10,8 +10,8 @@
     left: 0;
     width: 100%;
     height: 100%;
-    /*background-image: url('../img/main/home_720.png');*/
-    background-image: url('../img/main/hmh.png');
+    background-image: url('../img/main/home_720.png');
+   /* background-image: url('../img/main/hmh.png');*/
     -webkit-background-size: cover; 
     -moz-background-size: cover; 
     -o-background-size: cover; 
@@ -321,6 +321,13 @@ img.section-main{
     font-weight:  400;
     margin-bottom: 20px; 
 }
+.tw-date{
+    background: rgb(230,230,230); 
+    padding: 15px 0;
+    font-size: 1.2em;
+    font-weight:  400;
+    margin-bottom: 20px; 
+}
 
 .static-image-small{
     width: 50%;
@@ -335,6 +342,9 @@ img.section-main{
     padding: 0 5px;
     font-weight: 300;
     /*font-size: 1em;*/
+}
+.section-content a{
+    color: rgb(255, 170, 0);
 }
 
 @media only screen and (min-width: 48em) {
