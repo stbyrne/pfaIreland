@@ -10,8 +10,8 @@
     left: 0;
     width: 100%;
     height: 100%;
-    /*background-image: url('../img/main/home_720.png');*/
-    background-image: url('../img/main/hmh.png');
+    background-image: url('../img/main/home_720.png');
+    /*background-image: url('../img/main/hmh.png');*/
     -webkit-background-size: cover; 
     -moz-background-size: cover; 
     -o-background-size: cover; 
@@ -79,8 +79,8 @@ contact-list .list .item-divider h2, contact-list .list .item-divider p{
     left: 0;
     width: 100%;
     height: 100%;
-    /*background-image: url('../img/main/home_720_blur.png');*/
-    background-image: url('../img/main/hmh_blur.png');
+    background-image: url('../img/main/home_720_blur.png');
+    /*background-image: url('../img/main/hmh_blur.png');*/
     -webkit-background-size: cover; /* pour Chrome et Safari */
     -moz-background-size: cover; /* pour Firefox */
     -o-background-size: cover; /* pour Opera */
@@ -281,7 +281,7 @@ img.section-main{
     box-shadow: 0 0 5px rgba(111, 111, 111, 0.85);
 }
 
-.fagan, .brennan, .shelley, .ndo, .byrne, .fahey, fenlon{
+.fagan, .brennan, .shelley, .ndo, .byrne, .fahey, .fenlon{
     -webkit-background-size: cover; 
     -moz-background-size: cover; 
     -o-background-size: cover; 
