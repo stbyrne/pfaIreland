@@ -315,6 +315,7 @@ img.section-main{
     color: #fff;
     position: relative;
     top: 50%;
+    padding-bottom: 20px;
 }
 
 .highlight{
@@ -377,13 +378,16 @@ img.section-main{
     
     .highlight{
         font-size: 2em;
+        letter-spacing: .5px;
     }
     .lowlight{
         font-size: 1.6em;
+        letter-spacing: .5px;
     }
     .section-detail p{
         font-size: 1.4em;
-        line-height:  1.2;
+        line-height:  1.4;
+        letter-spacing: .5px;
     }
 }
 
