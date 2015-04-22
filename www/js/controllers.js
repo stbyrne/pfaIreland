@@ -214,7 +214,7 @@ angular.module('starter.controllers', [])
                 $articleDate = $timestamp.toDateString(),
                 $articleImage = $(value["field_image"]).attr('src'),
                 $articleTitle = value["node_title"],
-                $articleIntro = $($getBody).html().substr(0,80) + ' ...' + 'read more',
+                $articleIntro = $($getBody).html().substr(0,80) + '...' + ' read more',
                 $articleThumb = $(value["thumbnail"]).attr('src');
             
             console.log($articleIntro);

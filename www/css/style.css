@@ -156,6 +156,7 @@ resource-list .list .item-divider h2, resource-list .list .item-divider p{
     bottom: 5px;
     right: 2px;
     top:auto;
+    color: rgb(255, 170, 0);
 }
 
 map {
@@ -232,7 +233,8 @@ i.icon.ion-loading-c {
 .article h4{
     
     text-align: center;
-    font-weight: 100;
+    font-weight: 400;
+    color:  rgb(255, 170, 0);
     
 }
 .article span{
@@ -376,6 +378,21 @@ img.section-main{
         width: 30%;
     }
     
+    .article h4{  
+        font-size: 24px;
+    
+    }
+    .article span{
+
+        font-size: 14px;
+
+    }
+    .article p{
+
+        font-size: 20px;
+
+    }
+    
     .highlight{
         font-size: 2em;
         letter-spacing: .5px;
@@ -391,14 +408,15 @@ img.section-main{
     }
 }
 
-@media only screen 
-  and (max-device-width: 667px) 
-  and (-webkit-min-device-pixel-ratio: 2)
-  and (orientation: landscape) { 
+@media only screen and (max-height: 420px) {
       
-    .contact-list .list .item .item-content{
+      
+      .contact-list .list .item .item-content h4{
+        font-size: 1.6em;
+        } 
+      .contact-list .list .item .item-content{
         background-color: rgba(60, 60, 60, 0.65);
-        padding: 1% 25% 1% 5%;
-    }
+        padding: .5% 25% .5% 5%;
+        }
 
 }
