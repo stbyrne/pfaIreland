@@ -363,10 +363,7 @@ img.section-main{
     .main{
         background-image: url('../img/main/home_768.png');
     }
-    .contact-list .list .item .item-content{
-        background-color: rgba(60, 60, 60, 0.65);
-        padding: 1% 25% 1% 5%;
-    }
+    
     .contact{
         background-image: url('../img/main/home_768_blur.png');
     }
@@ -388,4 +385,15 @@ img.section-main{
         font-size: 1.4em;
         line-height:  1.2;
     }
+}
+
+@media only screen 
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: landscape) { 
+      
+    .contact-list .list .item .item-content{
+        background-color: rgba(60, 60, 60, 0.65);
+        padding: 1% 25% 1% 5%;
+    }
+
 }
