@@ -283,7 +283,7 @@ img.section-main{
     box-shadow: 0 0 5px rgba(111, 111, 111, 0.85);
 }
 
-.fagan, .brennan, .shelley, .ndo, .byrne, .fahey, .fenlon{
+.fagan, .brennan, .shelley, .ndo, .byrne, .fahey, .twigg{
     -webkit-background-size: cover; 
     -moz-background-size: cover; 
     -o-background-size: cover; 
@@ -308,8 +308,8 @@ img.section-main{
 .ndo{
        background-image: url('../images/content/ndo.png');
 }
-.fenlon{
-       background-image: url('../images/content/fenlon.png');
+.twigg{
+       background-image: url('../images/content/twigg.png');
 }
 
 .section-detail{
