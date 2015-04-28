@@ -304,9 +304,24 @@ angular.module('starter.controllers', [])
 .controller('MapCtrl', function($scope, $ionicLoading) {
   $scope.mapCreated = function(map) {
     $scope.map = map;
+      
+    var pfailoc = new google.maps.LatLng(53.395415, -6.356049);
+      
+    var pfaiOffices = 'img/loc.svg';
+        
+    new google.maps.Marker({
+            position: pfailoc,
+            map: $scope.map,
+            icon: pfaiOffices,
+            title: "PFA Ireland Offices"
+    });
+      
+    $scope.map.setZoom(10);
+      
+    $scope.map.setCenter(pfailoc);
   };
     
-    var defaultLatLng = new google.maps.LatLng(53.3954533, -6.355980); 
+    var defaultLatLng = new google.maps.LatLng(53.395415, -6.356049); 
 
   $scope.centerOnMe = function () {
     console.log("Centering");
@@ -324,28 +339,17 @@ angular.module('starter.controllers', [])
         console.log('Got pos', pos);
         var loc = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
         $scope.map.setCenter(loc);
-        $scope.map.setZoom(10);
-        
-        var pfaiOffices = 'img/loc.svg';
-        
-        new google.maps.Marker({
-            position: defaultLatLng,
-            map: $scope.map,
-            icon: pfaiOffices,
-            title: "PFA Ireland Offices"
-        });
-        
         var infowindow = new google.maps.InfoWindow({
-    content: "<span>Here you are</span>"
-});
+            content: "<span>Here you are</span>"
+        });
         var location = new google.maps.Marker({
             position: loc,
             map: $scope.map
         });
         
-        google.maps.event.addListener(location, 'click', function() {
+        /*google.maps.event.addListener(location, 'click', function() {
             infowindow.open($scope.map,location);
-        });
+        });*/
         $ionicLoading.hide();
         
     }, function (error) {
@@ -358,16 +362,12 @@ angular.module('starter.controllers', [])
             center: latlng,
             mapTypeId: google.maps.MapTypeId.ROADMAP
         };
-        // Add an overlay to the map of current lat/lng
-        // Add custom image to map
         var pfaiOffices = 'images/loc.svg';
-        /*var mark = 'images/mark.svg';*/
         var marker;
         marker.setMap(null);
         marker = new google.maps.Marker({
             position: latlng,
             map: map,
-            /*icon: mark,*/
             title: "You are here!"
         });
         var marker2;
