@@ -283,12 +283,11 @@ img.section-main{
     box-shadow: 0 0 5px rgba(111, 111, 111, 0.85);
 }
 
-.fagan, .brennan, .shelley, .ndo, .byrne, .fahey, .twigg{
+.fagan, .brennan, .shelley, .ndo, .byrne, .fahey, .twigg, .ryan, .quigley{
     -webkit-background-size: cover; 
     -moz-background-size: cover; 
     -o-background-size: cover; 
     background-size: cover; 
-       
 }
 .fagan{
        background-image: url('../images/content/fagan.png');
@@ -310,6 +309,12 @@ img.section-main{
 }
 .twigg{
        background-image: url('../images/content/twigg.png');
+}
+.ryan{
+       background-image: url('../images/content/ryan.png');
+}
+.quigley{
+       background-image: url('../images/content/quigley.png');
 }
 
 .section-detail{
